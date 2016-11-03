@@ -1,0 +1,33 @@
+﻿		/////////////////////////////////////////////////
+		//////////////////READ ME/////////////////////////
+		/////////////////////////////////////////////////
+
+
+This site Web 'ALDN' is based on free template find in the web !
+That site has coded with MVC architecture !
+
+1 ) Arborescence:
+/admin -> partie administration du site
+config.php-> fichiers configuration et objects du site
+/css -> les stylesheets
+/views/elements/-> parties incluses (footer, header, slider, etc)
+/libs -> librairies externes (w3shcools, bootstrap, jquery etc)
+/views/moduls -> les modules du site (logs, logs admins, etc)
+/core -> contient les classes qui font fonctionner le modèle mvc
+/plugins -> Helper et Class externes au site 
+/index.php -> c'est le dispatcher, page appelée tout le temps qui aiguille pour savoir quel action 
+ou controller changer
+
+2)Le .htaccess:
+url_rewriting -> controller/action 
+
+3) Variables et Constantes:
+root -> indique l'url du dossier sur le serveur
+webroot -> url depuis la racine en absolu
+
+4)Helps:
+mysqli_num_rows($sql); //nombre de lignes
+
+
+
+

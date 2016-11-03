@@ -1,0 +1,542 @@
+#associationId:click{
+	display:block;
+	z-index:50000;
+	background-color:white!important;
+	}
+.w3-rougeScript{
+	font-family: 'Rouge Script', cursive!important;
+
+}
+w3-roboto{
+font-family: 'Roboto', sans-serif;
+}
+.w3-allerta {
+  font-family: "Allerta Stencil", Sans-serif;
+}
+
+/**OFFRES**/
+div#filterDeposerOffre{
+	width:510px;
+	margin:auto;
+	background:rgba(0,0,0,0.2);
+	margin-bottom:50px;
+
+}
+
+div#filterDeposerOffre h1{
+	text-align:center;
+	padding:10px;
+}
+div#filterDeposerOffre p{
+	display:inline-block;
+	margin:0px auto;
+	min-width:250px;
+	height:100px;
+	font-size:150%;
+	line-height:100px;
+	text-align:center;
+	background:rgba(0,0,0,0.2);
+	border:3px solid white;
+	border-radius:3px;
+	font-family: 'Roboto', sans-serif;
+	margin-left:2px;
+
+}
+div#filterDeposerOffre p:hover{
+	background:rgba(0,0,0,0.8);
+	color:white;
+
+}
+/***** ARTICLES ******/
+div#filterArticle button{
+	background:rgba(0,0,0,0.8);
+	width:200px;
+	line-height:52px;
+	border:3px solid white;
+	outline-color:orange;
+	outline-width:2px;
+	color:white;
+	margin:10px;
+	letter-spacing:1px;
+	transition:border 0.45s;
+}
+div#filterArticle button:active{
+	outline-color:red;
+	outline-width:2px;
+}
+div#filterArticle button:hover{
+	border:3px solid #07A4B5;;
+
+}
+
+
+div.alerteArticle{
+	font-family: 'Rouge Script', cursive!important;
+	font-size:25px;
+	height:35px;
+	line-height:35px;
+	background:rgba(0,0,0,0.8);
+	margin:10px 10% 10px 10%;
+	color:white;
+	position:relative;
+
+}
+div.alerteArticle span{
+
+	color:white;
+	padding-right:10px;
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+div.alerteArticle span:hover{
+	color:green;
+}
+div.alerteArticle p{
+	text-align:center;
+	}
+div.ArticleRow{
+	border:3px solid white;
+	background:rgba(0, 0, 0, 0.75);
+	margin-top:20px;
+	margin-bottom:20px;
+	height:100%;
+	min-height:250px;
+
+}
+div.ArticleRow h2{
+	background:rgba(255,255,255,0.35);
+	text-align:center;
+	font-family: 'Rouge Script', cursive!important;
+	font-size:3.1em;
+	margin:0px;
+	border-bottom:3px solid whitesmoke;
+}
+div.ArticleRow h2 + p{
+	text-align:center;
+	background:rgba(0,0,0,0.5);
+	color:white;
+	font-size:1.2em;
+	margin:0px;
+	padding:5px;
+	border-bottom:3px solid whitesmoke;
+}
+div.ArticleRow h2 a{
+		text-decoration:none;
+		text-shadow:1px 2px 6px white;
+
+}
+div.ArticleRow table{
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+div.ArticleRow table td{
+	padding:0px;
+	margin:0px;
+	}
+div.ArticleRow table tr{
+}
+
+div.ArticleRow table td:nth-child(1){
+	width:50%;
+	border-bottom:3px solid white;
+	padding-left:5px;
+    font-variant: small-caps;
+	font-weight:bold;
+	color:white;
+	height:28px;
+	line-height:28px;
+}
+div.ArticleRow table td:nth-child(2){
+	width:50%;
+	padding-left:15px;
+    font-variant: small-caps;
+	font-weight:bold;
+	color:white;
+	height:28px;
+	line-height:28px;
+}
+div.ArticleDescription p{
+	font-size:80%;
+	width:100%;
+	color:white;
+	text-align:left;
+	padding-left:5px;
+	padding-right:5px;
+	
+}
+
+div.ArticleRow p.buttonArticle{
+	text-align:center;
+	padding:0px;
+	background:rgba(255,255,255,0.2);
+	color:white;
+	margin:10px 10% 3% 10%;
+	border:3px solid white;
+	border-radius:3%;
+}
+
+div.ArticleButtons img{
+	display:block;
+	width:120px;
+	height:100px;
+	margin:auto;
+	margin-top:10px;
+
+}
+p.buttonArticle a{
+	display:block;
+	border:3px solid transparent;
+	padding:10px;
+	margin:0px;
+	transition:border 0.45s;
+}
+p.buttonArticle a:hover, p.buttonArticle a:active{
+	border:3px solid #07A4B5;
+	
+}
+/*** FIN ARTICLES PAGE ***/
+
+
+
+
+/*inscription page*/
+.w3-fondInscription{
+	background:rgba(0, 0, 0, 0.35);
+	
+}
+#inscriptionFormulaire{
+	width:100%;
+	max-width:70%;
+	min-width:60%;
+	margin:auto;
+	margin-top:100px;
+	margin-bottom:100px;
+}
+#inscriptionFormulaire h1{
+	text-align:center;
+	font-family: 'Rouge Script', cursive!important;
+	font-size:80px;
+	border:3px solid white;
+	margin-bottom:40px;
+
+}
+#inscriptionFormulaire form{
+	padding-top:20px;
+	border:3px solid white;
+
+}
+#inscriptionFormulaire form label{
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size:15px;
+	color:white;
+	padding:20px 0px 10px 10px;
+	text-shadow:1px 2px 7px black;
+
+}
+
+#inscriptionFormulaire form input{
+	display:block;
+	width:100%;
+	max-width:300px;
+	margin-left:10px;
+	margin-bottom:5px;
+	border:3px solid white;
+	background:rgba(255, 255, 255, 0.47);
+	height:38px;
+
+
+}
+#inscriptionFormulaire #buttonInscription{
+	border:3px solid black;
+	margin:25px auto;)
+	padding:20px;
+	text-transform:uppercase;
+	letter-spacing:2px;
+	font-size:22px;
+	transition:border 0.45s;
+
+}
+#inscriptionFormulaire #buttonInscription:hover{
+
+	border:3px solid #07A4B5;
+	
+}
+#inputAvatar{
+	border:3px solid black;
+
+}
+#inscriptionFormulaire input[type=submit]{
+	line-height:38px;
+
+	
+}
+/*** FIN INSCRIPTION**/
+
+
+
+/** CONNECTION PAGE **/
+
+div#ConnectionForm{
+	width:70%;
+	margin:auto;
+	margin-top:100px;
+	margin-bottom:100px;
+	
+}
+#ConnectionForm form{
+	
+	border:3px solid white;
+	width:50%;
+	margin:auto;
+	background:rgba(0, 0, 0, 0.35);
+}
+#ConnectionForm h1{
+	text-align:center;
+	font-family: 'Rouge Script', cursive!important;
+	font-size:500%;
+	border:3px solid white;
+	margin-bottom:40px;
+
+}
+#ConnectionForm label{
+	display:block;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size:15px;
+	color:white;
+	text-shadow:1px 2px 7px black;
+	padding-left:10%;
+	padding-top:3%;
+	padding-bottom:1%;
+
+}
+#ConnectionForm input{
+	display:block;
+	width:80%;
+	border:2px solid white;
+	background:rgba(255, 255, 255, 0.47);
+	margin:auto;
+	height:38px;
+}
+#ConnectionForm input[type=submit]{
+	border:3px solid white;
+	margin-top:20px;
+	margin-bottom:20px;
+	transition: border 0.45s;
+	letter-spacing:2px;
+	text-transform:uppercase;
+}
+#ConnectionForm input[type=submit]:hover{
+	border:3px solid #07A4B5;
+}
+/**FIN CONNECTION FORMULAIRE #ConnectionForm**/
+
+
+/** PANIER ***/
+#panier table{
+		width:95%;
+		margin: 0px;
+		padding:0px;
+		
+}
+#panier table thead{
+		border:3px solid black!important;
+		background:orange;
+		text-align:center;
+}
+#panier table tfoot{
+		border:3px solid black!important;
+
+}
+#panier table td{
+		text-align:center;
+}
+
+
+
+/*** FIN PANIER ***/
+
+#RecentsOffers{
+	position:relative;
+}
+#leftOffer{
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:30px;
+	background:grey;
+}
+#rightOffer{
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:100%;
+	width:30px;
+	background:grey;
+}
+
+
+#RecentsArticles{
+	position:relative;
+
+}
+#leftArt{
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:30px;
+	background:grey;
+}
+#rightArt{
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:100%;
+	width:30px;
+	background:grey;	
+}
+
+
+
+/*** slider NOS SERVICES ***/
+.monSlider {
+	display:none;
+	}
+.tagslide {
+	height:15px;
+	width:15px;
+	padding:0;
+	margin-top:6px;
+	cursor:pointer;
+	}
+
+/*** FIN slider NOS SERVICES ***/
+
+
+
+h1 small{
+		color:grey!important;
+}
+
+body.w3-content{
+	max-width:1060px!important;
+	background-color:#FAFAFA;
+}
+header .w3-hover-header li a:hover {
+	background-color:#E1E6E8!important;
+	color:black!important;
+	
+}
+div.w3-container div#partenaires{
+	max-width:1060px;
+	min-height:500px;	
+	margin:auto;
+	display:flex!important;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	align-content:stretch;
+
+	
+}
+/** PARTENAIRES PAGE ***/
+#partenaires img{
+	color:red!important;
+	
+}
+#partenaires .content_partenaire{
+	margin: 5px auto!important;
+}
+/*** FIN PARTENAIRES PAGE ***/
+.upper{text-transform:uppercase;}
+
+
+.w3-decoration-no{
+	text-decoration:none;
+}
+
+body.w3-content{min-height:100%!important;
+background-image:url('../ressources/images/home.jpg');
+background-repeat:no-repeat;
+background-repeat:no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+
+
+}
+
+img.infobulle:hover div.contentinfobulle{
+	display:block;
+	border:1px solid black;
+	position:absolute;
+	z-index:1000;
+	top:50px;
+	left:100px;
+	background:grey;
+	color:black;
+	width:100px;
+	height:50px;
+	
+}
+#mailheader:hover{
+	text-decoration:underline!important;
+	color:black;
+	font-weight:bold;
+}
+header a:hover{
+		text-decoration:underline!important;
+		text-decoration-size:5px;
+	
+}
+#contactModul{
+	
+}
+#menu li a {
+	font-size:15px;
+}
+#content_infos_user{
+	min-height:847px;
+	
+}
+
+w3-right{
+float:left!important;
+}
+
+footer a, header a{
+	text-transform:uppercase;
+}
+header #logsheader{
+display:block!important;
+}
+
+
+
+}
+/** BOUTON HAUT PAGE **/
+#retour_haut_page{
+	position:fixed;
+	bottom:30px;
+	right:30px;
+	text-decoration:none;
+	transition:1s;
+}
+#retour_haut_page i:active{
+	font-weight:bold;
+}
+/** FIN BOUTON HAUT PAGE **/
+
+@media screen and (max-width:600px){
+	
+	#compte, #compteId{
+		width:100%;	
+}
+
+
+}
