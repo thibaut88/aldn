@@ -23,7 +23,8 @@ class Offres extends Controller{
 		$inputtimes=$this->modelCategoryTime;
 		// SI FORMULAIRE ENVOYER 
 		// ALORS REQUIRE FILTER_OFFERS.PHP
-		if(isset($_POST['send'])){
+		if ( !empty($_POST) && isset($_POST['send']) ){
+			//model require offer filter
 			require 'models/filter_offers.php';
 			$this->datas = $FilterOffers->read();
 			// GERE LES ERREURS 
@@ -32,17 +33,13 @@ class Offres extends Controller{
 			$displayNoResult=false;
 			$displayNoResult=($this->Errors["resultat"]==0)?false:true;
 		}else{
-			// SINON REQUIRE OFFERS.PHP
+			// SINON require model offer
 			require 'models/offers.php';
 			$this->datas = $OffersModel->read();
 		}
-		$Controller = $GLOBALS['Controller'];
-		// BARRE DE RECHERCHE
-		// require 'scripts/searchnav.php';
 		require 'views/elements/header.php';
 		require 'views/Offres/Index.php';
 		require 'views/elements/footer.php';	
-		// require 'scripts/pagination_offers.php';	
 	}
 	function Postuler(){
 		//A FAIRE

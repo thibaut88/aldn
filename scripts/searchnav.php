@@ -1,119 +1,4 @@
-
-<!-- NAVIGATION TOP BODY -->
-<div id="searchnav"class="w3-container w3-card-4 w3-center w3-hide-small w3-margin-0 w3-margin-bottom  w3-padding-12 w3-white w3-border w3-border-lightgrey w3-card-4 "style="margin-top:50px!important;">
-
-<h2 style="line-height:80px!important;"class="w3-text-white w3-allerta w3-teal w3-animate-top w3-margin-0 w3-margin-bottom">Rechercher une offre</h2>
-<form action="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres';?>"method="post"style="margin-left:20%!important;">
-<div class="w3-hide-small w3-allerta">
-<div class="w3-row-padding w3-threequarter w3-animate-left">
-<!-- FORMULAIRE RECHERCHE PETITS ECRANS -->
-<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="<?php if(isset($_POST['nom_offre'])){echo $_POST['nom_offre'];}else{echo "Nom";};?>" name="nom_offre">
-<select class="w3-select w3-border w3-margin-bottom" name="categorie">
-  <option value="0" disabled selected>catégorie</option>
-  <?php
-  foreach($inputtype as $key){
-	  echo "<option value='".$key['id_category_offer']."'>".$key['category_name']."</option>";}
-  ?>
-</select> 
-<select class="w3-select w3-border w3-margin-bottom" name="duree">
-  <option value="default" disabled selected>durée </option>
-    <?php
-  foreach($inputtimes as $key){
-	  echo "<option value='".$key['id_category_time']."'>".$key['category_time_name']."</option>";}
-  ?>
-</select> 
-
-<div class="w3-center w3-margin-bottom">
-
-<label for="typeformation">avec ou sans diplôme ?</label><br>
-<input class="w3-radio" type="radio" name="diplome" value="avec" >
-<label class="w3-validate">avec</label>
-
-<input class="w3-radio" type="radio" name="diplome" value="sans">
-<label class="w3-validate">sans</label>
-
-<input class="w3-radio" type="radio" name="diplome" value="tous" >
-<label class="w3-validate">tous</label>
-</div>
-<div class="w3-row">	
-
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom" type='text'name="ville" placeholder="ville">
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom"  type='number'name="code_postal" placeholder="code postal">
-</div>
-
-<div class="w3-row">	
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom"  type='date'name="date_d" placeholder="date debut">
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom"  type='date'name="date_f" placeholder="date fin">
-</div>
-<div class="w3-center">
-<input class="w3-btn w3-large w3-xlarge w3-teal" type="submit" name="send"value="Rechercher">
-</div>
-</div>
-</div>
-</form>
-</div>
-
-<!-- HIDE LARGE/MEDIUM : Ouvrir le formulaire recherche que pour portable -->
-<nav class=" w3-hide-large w3-black w3-hide-medium w3-navbar w3-large w3-white w3-left-align">
-	<li class="w3-hide-medium w3-hide-large w3-white  w3-opennav w3-right">
-	<a href="javascript:void(0);" onclick="searchsmall()"><i class="fa fa-search"></i></a>
-	</li>
-<li>
-<a href="#"class="w3-hover-white w3-center">Rechercher une offre</a>
-</li>
-
-<!-- SHOW SMALL SCREEN : SEARBAR -->
-<div id="search_small" class=" w3-hide w3-hide-large w3-hide-medium w3-allerta">
-<form action="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres';?>"method="post">
-
-<div class="w3-row-padding w3-animate-top">
-<!-- FORMULAIRE RECHERCHE PETITS ECRANS -->
-<input class="w3-input w3-border w3-margin-bottom" type="text" 
-placeholder="<?php if(isset($_POST['nom_offre'])){echo $_POST['nom_offre'];}
-else{echo "Nom ou numéro";};?>"name="nom_offre">
-<select class="w3-select w3-border w3-margin-bottom" name="categorie">
-  <option value="default" disabled selected>catégorie de l'offre</option>
-  <?php
-  foreach($inputtype as $key){
-	  echo "<option value='".$key['id_category_offer']."'>".$key['category_name']."</option>";}
-  ?>
-</select> 
-<select class="w3-select w3-border w3-margin-bottom" name="duree">
-  <option value="default" disabled selected>durée de l'offre</option>
-    <?php
-  foreach($inputtimes as $key){
-	  echo "<option value='".$key['id_category_time']."'>".$key['category_time_name']."</option>";}
-  ?>
-</select> 
-
-	<div class="w3-center w3-margin-bottom">
-
-	<label for="typeformation">avec ou sans diplôme ?</label><br>
-
-	<input class="w3-radio" type="radio" name="diplome" value="avec">
-	<label class="w3-validate">avec</label>
-
-	<input class="w3-radio" type="radio" name="diplome" value="sans">
-	<label class="w3-validate">sans</label>
-
-	<input class="w3-radio" type="radio" name="diplome" value="tous" >
-	<label class="w3-validate">tous</label>
-	</div>
-
-<input class="w3-input w3-border w3-margin-bottom" type="text" name="ville"placeholder="ville">
-<input class="w3-input w3-border w3-margin-bottom" type="number" name="code_postal"placeholder="code postal">
-
-<div class="w3-row">	
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom" name="date_d"type="date" placeholder="date debut">
-<input class="w3-col s6 w3-input w3-border w3-margin-bottom" name="date_f"type="date" placeholder="date fin">
-</div>
-<input class="w3-btn w3-btn-block w3-large w3-teal" type="submit" name="send"value="Rechercher">
-</div>
-</form>
-</div>
-</nav>
-
-<script>
+<script type="text/javascript">
 
 //Contenu des offres 
 $(function(){
@@ -131,6 +16,98 @@ function searchsmall() {
 }
 </script>
 
+
+
+
+
+
+
+
+
+<div   id="searchnav" class="col-xs-12 col-sm-8 col-sm-offset-2"
+			style="padding-bottom:20px;
+			background:rgba(40,40,40,0.2);
+			">
+					<!-- TITLE NAV -->
+					<h2 style="line-height:80px!important;text-align:center"class="">Rechercher une offre</h2>
+				
+
+		<!-- DEBUT FORMULAIRE -->
+		<form action="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres';?>" method="post">
+		
+					<div class="form-group">
+					<!-- FORMULAIRE DE RECHERCHE D'UNE OFFRE -->
+					<input class="form-control" type="text" 
+					placeholder="<?php if(isset($_POST['nom_offre'])){echo $_POST['nom_offre'];}else{echo "Nom";};?>"
+					name="nom_offre">
+					</div>
+					
+					<div class="row">
+					<div class="col-xs-6">
+						<div class="form-group">
+							<select class="form-control" name="categorie">
+						    <option value="0" disabled selected>catégorie</option>
+							  <?php
+							  foreach($inputtype as $key){
+								  echo "<option value='".$key['id_category_offer']."'>".$key['category_name']."</option>";}
+							  ?>
+							</select> 
+						</div><!-- GROUP -->
+					</div><!-- COL 6 -->
+				
+					<div class="col-xs-6">
+					<div class="form-group">
+							<select class="form-control" name="duree">
+								  <option value="default" disabled selected>durée </option>
+									<?php
+								  foreach($inputtimes as $key){
+									  echo "<option value='".$key['id_category_time']."'>".$key['category_time_name']."</option>";}
+								  ?>
+							</select> 
+						</div><!-- GROUP -->
+					</div><!-- COL 6 -->
+					</div><!-- ROW -->
+					
+					<div class="form-group">
+				
+						<center class="row">
+						<p for="typeformation">avec ou sans diplôme ?</p>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="avec" >avec</label>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="sans">sans</label>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="tous" >tous</label>
+						</center>
+					
+					</div><!-- GROUP -->
+					
+					<div class="form-group">	
+					<div class="row">	
+						<div class="col-xs-12 col-sm-6">	
+						<input class=" form-control"  type='text' name="ville" placeholder="ville">
+						</div>					
+						<div class="col-xs-12 col-sm-6">	
+						<input class="  form-control"  type='number' name="code_postal" placeholder="code postal">
+						</div>
+					</div>
+					</div>
+					
+					<div class="form-group">	
+					<div class="row">	
+						<div class="col-xs-12 col-sm-6">	
+						<input class="form-control"  type='date'name="date_d" placeholder="date debut">
+						</div>
+						<div class="col-xs-12 col-sm-6">	
+						<input class="form-control"  type='date'name="date_f" placeholder="date fin">
+						</div>
+					</div>
+					</div>
+					
+					<center>
+						<input class="btn btn-default btn-md" type="submit" name="send"value="Rechercher">
+					</center>
+			
+		</form><!-- END FORM -->
+		
+</div><!--   #searchnava-->
 
 
 

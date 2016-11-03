@@ -45,9 +45,9 @@ class Users extends Controller{
 		
 		// SIL MANQUE PAS logged_user_id ALORS user_id = false;
 		// SI MANQUE PAS user_id et pseudo ALORS user = true;
-		// GERE L'ID DU PROFIL A AFFICHER
+		// Gère l'id du profil a afficher
 		$user_id =(isset($_SESSION['Auth']['id']))?$_SESSION['Auth']['id']:false;
-		// GERE SI LE PROFIL DOIT ETRE AFFICHER
+		// gère si le profil est affiché ou non 
 		$displayUserProfil=((isset($_SESSION['Auth']['id']))&&(isset($_SESSION['Auth']['pseudo']))) ? true : false;
 		//Includes partials pages :
 		$Controller = $GLOBALS['Controller'];

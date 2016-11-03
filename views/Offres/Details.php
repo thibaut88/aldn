@@ -15,67 +15,106 @@ foreach($inputtype as $key=>$value){
 
 
 ?>
-<!-- FIL D'ARIANE -->
-<h1 class="w3-border-bottom w3-border-black w3-animate-right w3-allerta w3-padding-bottom w3-border-bottom w3-margin-bottom"
-style="font-size:25px;max-width:1060px;margin:auto;margin-top:50px!important;"><b>Offres </b><small> / Offre n°<?= $offer['id_offer'];?> </small></h1>
-
-
-<div style="max-width:1060px;margin:auto;margin-bottom:100px;">
-<a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres'; ?>"title="retour"
-class="animate fadeInLeft animated">
-<button type="submit"class="w3-large w3-btn w3-green"name="backpage">Retour</button></a>
-
-
-
-<div class="w3-container"style="margin-bottom:50px;margin-top:50px!important;">
-<div class="w3-row w3-allerta">
-<div class="w3-card-2 w3-col s12 m8  l8 w3-white">
-
-<div class="w3-border w3-padding-left w3-padding-right">
-<h1 class="w3-xlarge  w3-text-shadow w3-center "><?= $offer['titre_offer']?></h1>
-<img src="http://ultraimg.com/images/2016/07/29/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"
-width="80%"height="280px"class="w3-show-block"style="background:white!important;margin:auto!important;">
-<p><b>Mise en ligne :</b> <?= $offer['date_ajout']?></p> 
-<p><b>Par : </b> <?= $offer['pseudo_offer']?></p>
-</div>
-
-<div class="w3-border w3-padding-left w3-padding-right">
-	<div class="">
-	<p>Durée de l'offre :</b> <?= $offer['length_offer']?></p>
-	<p><?= "<b>Localisation</b> : ". $offer['code_postal'];?></p>
-	<p><?= ($offer['hide_phone']!=="on")?"<b>contact</b> : ".$offer['offer_phone']."<br>":"";?></p>
-	<p><?= "<b>Type de demande : </b>".$offer['type_offer'];?></p>
-	<p><?= "<b>Catégorie</b> : $categoryOffer"?></p>
-	<p><?= "<b>Durée de l'offre</b> : $timeOffer"?></p>
+	<div class="container">
+			<a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres'; ?>"title="retour"class="animate fadeInLeft animated">
+			
+			<button type="submit"class="btn btn-default"name="backpage"style="margin-top:20px;">Retour</button></a>
+			<!-- FIL D'ARIANE -->
+			<h1 class=""
+			style="font-size:25px;max-width:1060px;margin:auto;margin-top:50px!important;"><b>Offre nÂ°<?= $offer['id_offer'];?></b></h1>
 	</div>
-</div>
 
-<div class="w3-border w3-padding-left w3-padding-right">
-<h2 class="w3-large 3-allerta w3-text-shadow"><u>Description :</u></h2>
-<p>
-<?= $offer['description_offer']?>
-</p>
-</div>
-</div>
+	
+		
+		
 
-<div class="w3-col s12 m4 l4 w3-allerta">
-<div class="w3-border w3-padding-left w3-white">
-<p class="w3-padding-left w3-large">Destinataire :<b><?=$offer['pseudo_offer'];?></b></p>
-</div>
+	<div class="container"style="">
+	<h1 class=""><?= $offer['titre_offer']?></h1>
 
-<div class="w3-margin-0 w3-border w3-margin-bottom">
-<button style="line-height:45px!important;"class="w3-btn w3-large w3-btn-block w3-white w3-hover-light-green" type="submit"name="send">
-<i class="fa fa-envelope" aria-hidden="true"></i>   envoyer un mail</button>
-<?php if(isset($_SESSION['logged_user_id'])&&isset($_SESSION['pseudo'])){ ?>
-<a href="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/deleteOffer.php?idOffer='.$offer['id_offer']?>">
-<button  style="line-height:45px!important;"class="w3-btn w3-large w3-btn-block w3-white w3-hover-red" type="submit"name="send">
-<i class="fa fa-trash" aria-hidden="true"></i>  supprimer l'annonce</button></a>
-<button  style="line-height:45px!important;"class="w3-btn w3-large w3-btn-block w3-white w3-hover-light-green " type="submit"name="send">
-<i class="fa fa-phone" aria-hidden="true"></i>  Voir le numéro</button></a>
-<?php
-}
- ?>
-</div>
-</div><!-- COL RIGHT-->
-</div>
-</div>
+	<div class="row">
+	
+			<!-- PARTIE GAUCHE -->
+		<div class="col-xs-12 col-sm-6 ">
+			<div class="row">
+				<div class="">
+				<img src="http://ultraimg.com/images/2016/07/29/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"
+				width="100%"height="280px"class="w3-show-block"style="background:white!important;margin:auto!important;">
+				<p><b>Mise en ligne :</b> <?= $offer['date_ajout']?> <b>Par : </b> <?= $offer['pseudo_offer']?></p>
+				</div>
+
+				
+				
+				<div class="">
+				<h2 class=""><u>Description :</u></h2>
+				<p>
+				<?= $offer['description_offer']?>
+				</p>
+				</div>
+				
+		<div class="col-md-12 col-xs-8 ">
+
+					<table class="table table-responsive">
+						<tr><td>DurÃ©e de l'offre</td>
+						<td><?= $offer['length_offer']?></td></tr>
+						
+						<tr><td>code postal</td>
+						<td><?=$offer['code_postal']?></td></tr>
+						
+						<tr><td>tÃ©l</td>
+						<td><?=$offer['phone_offer']?></td></tr>
+						
+						<tr><td>type de l'offre</td>
+						<td><?=$offer['type_offer']?></td></tr>
+						
+						<tr><td>type de demande</td>
+						<td><?=$offer['type_offer']?></td></tr>
+						
+						<tr><td>durÃ©e</td>
+						<td><?=$timeOffer?></td></tr>
+						
+						<tr><td>catÃ©gorie</td>
+						<td><?=$categoryOffer?></td></tr>
+			
+					</table>
+		</div>
+		</div>
+
+		</div><!-- COL LEFT -->
+
+		
+		
+		<!-- PARTIE DROITE -->
+		<div class="col-md-4 col-xs-6 col-xs-offset-3">
+				
+				<h3>Destinataire : <b><?=$offer['pseudo_offer'];?></b></h3>
+				
+				<div class="form-group">
+					<button style="" class="btn btn-default btn-lg form-control" type="submit"name="send">
+					<i class="fa fa-envelope" aria-hidden="true" style="">   envoyer un mail</i> </button>
+				</div>
+				
+				<?php if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo'])){ ?>
+				
+					<div class="form-group">
+						<a href="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/deleteOffer.php?idOffer='.$offer['id_offer']?>">	
+					<button style="" class="btn btn-default btn-lg form-control" type="submit"name="send">
+						<i class=" fa fa-envelope" aria-hidden="true"> supprimer l'annonce</i>
+						</button></a>
+					</div>
+			
+					<div class="form-group">
+					<button style="" class="btn btn-default btn-lg form-control" type="submit"name="send">
+					<i class=" fa fa-envelope" aria-hidden="true"> Voir le numÃ©ro</i>  </button>
+					</div>
+							<div id="contentNumeroUser">
+
+
+								</div>
+				<?php
+				}
+				 ?>
+			
+		</div><!-- COL RIGHT-->
+	
+	</div><!-- ROW -->
+	</div><!-- CONTAINER -->

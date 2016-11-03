@@ -1,11 +1,11 @@
 
 <div class="container background-white">
+
 <div class="row">
 <div class="col-md-8 col-md-offset-2">
 
-<H1 >
-ADDITIF AUX STATUTS ADOPTES</H1>
-<p>
+<h1>Additif aux status adoptés</h1>
+<p class="lead">
 
 
 Dans le cadre de ses valeurs (la lutte contre la fracture numérique et celles de l'économie sociale et solidaire),<br>
@@ -18,16 +18,19 @@ Le C.A de A.L.D.N tient à confirmer son option fondamentale : <br><br>l'aide b�
 - Divers (TV. GPS. Téléphones, lorsqu'ils sont liés à l'internet etc.)</p>
 <hr>
 
-<p>Mais donner son temps et de sa passion est une chose, avoir des frais occasionnés par cette activité engendre des frais qui doivent être pris en charge, 
+<p class="lead">Mais donner son temps et de sa passion est une chose, avoir des frais occasionnés par cette activité engendre des frais qui doivent être pris en charge, 
 pour s' assurer de la fidélité et de l' efficacité des formateurs bénévoles  entre autre, qu' il faut aborder selon la législation e
 t conformément à nos Statuts qui prévoient que les « adhérents-utilisateurs » participent de façon mutualisée et forfaitaire aux frais engagés par les formateurs (déplacements, parkings, péages, utilisation d’un véhicule personnel ou transports en commun etc.) et ce, quelque soit le résultat obtenu.</p>
 <hr>
-<p>
+<p class="lead">
 Cette participation se traduit par le versement d' une seule somme forfaitaire par chèque à l' ordre de A.L.D.N, à chaque intervention à domicile, quelle que soit sa durée et quelle que soit le niveau de technicité. Cette somme forfaitaire et mutualisée est seulement fonction du nombre de kilomètres Aller/Retour effectué avec un maximum de 50 Km, d’où le tableau suivant :</p>
 
-</div>
+</div><!-- col 8-->
+</div><!-- row-->
+
+
 <div class="col-md-8 col-md-offset-2">
-<div class="container row">
+<div class=" row lead">
 
 <table class="table">
 <tr>
@@ -47,26 +50,37 @@ Cette participation se traduit par le versement d' une seule somme forfaitaire p
 <td>25 €</td>
 </tr>
 </table>
-</div>
+ </div><!--  row -->
 
-<p>Cette somme, ainsi calculée, sera encaissée par l' association exclusivement.</p>
+<div class=" row lead">
+
+<p class="lead">Cette somme, ainsi calculée, sera encaissée par l' association exclusivement.</p>
 <hr>
 
 
-<p>L' association, sur ses fonds propres, gèrera directement l' indemnisation des formateurs et sera calculée par l' administration de A.L.D.N selon un barème interne établi par le C.A.</p>
+<p class="lead">L' association, sur ses fonds propres, gèrera directement l' indemnisation des formateurs et sera calculée par l' administration de 
+A.L.D.N selon un barème interne établi par le C.A.</p>
         
 		
-<div>
-Exception faite pour les formateurs autorisés légalement à percevoir une rémunération par le biais des C.E.S.U – auto entrepreneurs par exemple. Seul, Bernard PINOT en a l' autorisation pour l' instant sur le Secteur de Fontenay.
-Pour faire face à ce nouveau mode de fonctionnement (en conformité avec la législation) nettement plus favorable aux « adhérents utilisateurs », la cotisation annuelle des nou-veaux adhérents sera portée à 20 €, tandis que le renouvellement de l' adhésion pour les inscrits de l' année précédente, pour favoriser la fidélité à l' association, sera portée à 15 € seulement (payables entre le 1er et le 25 décembre : au-delà de ce délai, les adhé-rents retardataires seront soumis au tarif des nouveaux adhérents).</div>
-<p>
+<p class="lead">
+Exception faite pour les formateurs autorisés légalement à percevoir une rémunération par le biais des C.E.S.U – auto entrepreneurs par exemple. 
+Seul, Bernard PINOT en a l' autorisation pour l' instant sur le Secteur de Fontenay.
+Pour faire face à ce nouveau mode de fonctionnement (en conformité avec la législation) nettement plus favorable aux « adhérents utilisateurs »,
+ la cotisation annuelle des nou-veaux adhérents sera portée à 20 €, tandis que le renouvellement de l' adhésion pour les inscrits de l' année précédente,
+ pour favoriser la fidélité à l' association, sera portée à 15 € seulement (payables entre le 1er et le 25 décembre : au-delà de ce délai, les adhé-rents
+ retardataires seront soumis au tarif des nouveaux adhérents).
+</p>
 <hr>
-<p>
-Cet additif a été adopté à l'unanimité par les membres du C.A. au cours de sa séance du 24 avril 2016 et sera communiqué à l' ensemble des « adhérents utilisateurs » à jour de leur cotisation. Il prendra effet au 1er juin 2017 et sera présenté à la prochaine Assemblée Gé-nérale des « adhérents-utilisateurs »dont la date sera annoncée sous peu.</p>
+<p class="lead">
+Cet additif a été adopté à l'unanimité par les membres du C.A. au cours de sa séance du 24 avril 2016 et sera communiqué 
+à l' ensemble des « adhérents utilisateurs » à jour de leur cotisation. Il prendra effet au 1er juin 2017 et sera présenté
+ à la prochaine Assemblée Gé-nérale des « adhérents-utilisateurs »dont la date sera annoncée sous peu.</p>
+
+ 
         <hr>
         <table class="table table-responsive">
 <tr>
-            <td class="">Le Président</td>
+            <td class="lead">Le Président</td>
             <td class="">Le Secrétaire </td>
             <td class="">Le Trésorier</td>
 </tr>
@@ -76,7 +90,6 @@ Cet additif a été adopté à l'unanimité par les membres du C.A. au cours de 
             <td>Birs Thierry</td>
 </tr>
         </table>
- </div>
-
 </div><!-- fin row -->
+</div><!-- fin col -->
 </div><!-- fin container -->

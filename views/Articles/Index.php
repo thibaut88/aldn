@@ -1,20 +1,29 @@
 
 <div class="container">
+			<?php
+			// Si l'utilisateur est pas connectÃ©
+			 if ($displayShouldConnect){?>
+			<div class="container">
+			<div class="alert alert-warning">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Il faut Ãªtre connectÃ© pour utiliser le panier !!</strong>
+			</div>
+			</div>
+			<?php } 
+			
+			// Si article ajoutÃ© au panier
+			 if ($displayAddPanier){?>
+			<div class="container">
+			<div class="alert alert-success">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Article ajoutÃ© au panier !!</strong>
+			</div>
+			</div>
+			<?php } ?>
+			
+			
 <div class="row">
 	
-	<!-- LES ALERTES -->
-	<?php
-	//ALERTE POUR INFORMER QU4IL FAUT SE CONNECTER POUR UTILISER LE PANIER
-	if ($displayShouldConnect){?>
-	<div class="alerteArticle w3-card-2">
-	<p>Il faut être connecté pour utiliser le panier</p><span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
-	</div>
-	<?php } ?>
-	<?php if($displayAddPanier){ ?>
-	<div class="alerteArticle w3-card-2 w3-animate-zoom">
-	<p class="w3-center">Article ajouté au panier</p><span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
-	</div>
-	<?php }  ?>
 	
 	<!-- BOUTONS DE TRI -->
 	<div id="filterArticle">
@@ -44,8 +53,8 @@
 				<td>Date d'ajout :</td>
 				<?php 
 				$table = explode('-',$v['date_ajout_article']);
-				$months = array("01"=>'janvier',"02"=>'février',"03"=>'mars',"04"=>'avril',"05"=>'mail',"06"=>'juin',
-				"07"=>'juillet',"08"=>'août',"09"=>'sept',"10"=>'oct',"11"=>'nov',"12"=>'déc');
+				$months = array("01"=>'janvier',"02"=>'fÃ©vrier',"03"=>'mars',"04"=>'avril',"05"=>'mail',"06"=>'juin',
+				"07"=>'juillet',"08"=>'aoÃ»t',"09"=>'sept',"10"=>'oct',"11"=>'nov',"12"=>'dÃ©c');
 				$year = $table[0];
 				$month = $table[1];
 				$day = $table[2];
@@ -54,7 +63,7 @@
 				<td>le <?=$day.' '.$months[$month].' '.$year?></td>
 				</tr>
 				<tr>
-				<td>Catégorie :</td>
+				<td>CatÃ©gorie :</td>
 				<td><?= $v['category_article']?></td>
 				</tr>
 					<?php if($v['payant']==1){ ?>
@@ -95,7 +104,7 @@
 			</p>	
 			<p class=" buttonArticle">
 			<a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).''.$v['link_button_download']?>"title="telecharger"alt="telecharger">
-			<i class="fa fa-download" aria-hidden="true"></i> Télécharger</a>
+			<i class="fa fa-download" aria-hidden="true"></i> TÃ©lÃ©charger</a>
 			</p>
 			<?php }  ?>	
 			

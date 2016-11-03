@@ -3,13 +3,13 @@
 	
 		//UTILISE LES SESSIONS POUR FONCTIONNER
 
-	if(isset($_SESSION['logged'])){
-		if(isset($_SESSION['logged_user_id'])&&isset($_SESSION['pseudo'])){
+	if(isset($_SESSION['Auth']['logged'])){
+		if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo'])){
 			
 			
 			$_SESSION['panier']['tobuy']['id_article'][] = (int) $_GET['tobuy'];
-			$_SESSION['panier']['user'] = $_SESSION['logged_user_id'];
-			$_SESSION['panier']['pseudo'] = $_SESSION['pseudo'];
+			$_SESSION['panier']['user'] = $_SESSION['Auth']['logged_user_id'];
+			$_SESSION['panier']['pseudo'] = $_SESSION['Auth']['pseudo'];
 			
 			
 			$redirect = "../Articles/AddPanierOk";

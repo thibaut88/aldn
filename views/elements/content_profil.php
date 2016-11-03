@@ -348,7 +348,7 @@
 								   <td>2</td>
 								   <td><?=$userPanier['total'].' $'?></td>
 									</table><!-- Fin table -->
-									   
+								
 									   <!-- Formulaire Envoyer PAYER panier -->
 									   <!-- Récupère les valeurs des champs du tableau -->
 									<form action="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/userBuyPanier.php'?>" 
@@ -364,7 +364,9 @@
 									 
 									 <?php } else{ ?>
 									   <div id="panier" >
-									<p>Votre panier est vide</p>
+											<div class="alert alert-warning">
+											  <strong>Votre panier est vide !!</strong>
+											</div>			
 									</div><!-- #panier -->
 									 <?php } ?>
 									 
@@ -372,7 +374,7 @@
 										 
 										 
 										 
-									<!-------------------------- NIVEAU 3 ------------------------------->						
+									<!-------------------------- NIVEAU 4 ------------------------------->						
 									<!-- Debut pane historique d'achat -->						
 									<div class="tab-pane fade in" id="sample-3c">
 									<?php
@@ -384,14 +386,16 @@
 									</div>	  
 									 <?php }else{ ?>
 									<div id='old_buy'>
-									<p>Votre historique d'achat est vide</p>
-									</div>
+											<div class="alert alert-warning">
+											  <strong>Pas d'achats en cours !!</strong>
+											</div>	
+											</div>
 									 <?php } ?>
 									 </div><!-- fin tab pane content -->
 													
 													
 													
-									<!-------------------------- NIVEAU 4 ------------------------------->						
+									<!-------------------------- NIVEAU 5 ------------------------------->						
 									<!-- Debut pane messagerie -->						
 								   <div class="tab-pane fade in" id="sample-3d">
 									<?php
@@ -403,9 +407,14 @@
 									  </div> 
 										 
 										  <?php } 
-										else{
-										  echo "<div id='messagerie' class='w3-center w3-animate-bottom w3-container infoscompte '><p>Votre messagerie est vide</p></div>";  
-									  } ?>
+										else {  ?>
+										<div id="messagerie">
+											<div class="alert alert-warning">
+											  <strong>Pas de message !!</strong>
+											</div>		
+										</div>		
+										<?php  } 
+										?>
 									</div><!-- fin tab pane messagerie  -->
 									
 				

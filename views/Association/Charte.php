@@ -5,7 +5,7 @@
 <!-- FIL D'ARIANE -->
 
 <div class="col-md-8 col-md-offset-2">
-<h1>Charte associative</h1>
+<H1 >Charte associative</H1>
 
 <div id="acte1">
 <dl>

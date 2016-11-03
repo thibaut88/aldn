@@ -21,5 +21,4 @@ $userPanier = $res;
 mysqli_close($conn);
 
 
-
 ?>
