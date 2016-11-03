@@ -1,8 +1,13 @@
 <?php
 
+
+	
 	//ON VERIFIE L'IMAGE DU PROFIL DE L'USER
     if (!empty($_FILES['avatar']['size']))
     {
+		
+		var_dump($_FILES);
+
         //On définit les variables :
         $maxsize = 2097152; //Poid de l'image en bits
         $maxwidth = 400; //Largeur de l'image
@@ -39,7 +44,6 @@
 		
     }/** FIN IMAGE CONTROL **/
 	
-$path_avatar=null;
 $nameImage = $user_firstname.''.$user_lastname;
 $nomavatar=(!empty($_FILES['avatar']['size']))?move_avatar($_FILES['avatar'],$nameImage):'';
 

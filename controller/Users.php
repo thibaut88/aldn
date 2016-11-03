@@ -1,4 +1,23 @@
 <?php
+
+
+function encrypt($pure_string, $encryption_key) {
+    $iv_size = mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_ECB);
+    $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+    $encrypted_string = mcrypt_encrypt(MCRYPT_BLOWFISH, $encryption_key, utf8_encode($pure_string), MCRYPT_MODE_ECB, $iv);
+    return $encrypted_string;
+}
+
+function decrypt($encrypted_string, $encryption_key) {
+    $iv_size = mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_ECB);
+    $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+    $decrypted_string = mcrypt_decrypt(MCRYPT_BLOWFISH, $encryption_key, $encrypted_string, MCRYPT_MODE_ECB, $iv);
+    return $decrypted_string;
+}
+
+
+
+
 class Users extends Controller{
 	
 	public $users;
@@ -47,6 +66,8 @@ class Users extends Controller{
 			$inputEmail = (string) htmlspecialchars($inputEmail);
 			$inputPassword = (isset($_POST['inputPassword']) && !empty($_POST['inputPassword']))?$_POST['inputPassword']:false;
 			$inputPassword = (string) htmlspecialchars($inputPassword);
+			$cleSecrete = "MaCleEstIncassable";
+			// $inputPassword = encrypt($inputPassword,$cleSecrete);
 		//conn
 		$conn = $GLOBALS['conn'];
 		$sql = "SELECT * FROM users WHERE password = '$inputPassword' AND adresse_mail = '$inputEmail' ";
@@ -82,17 +103,20 @@ class Users extends Controller{
 	
 	/**========================== PARTIE INSCRIPTION ==========================**/
 	function Inscription(){
-	
+
 		//Si formulaire d'inscription est envoyé 
 		if (isset($_POST) && !empty($_POST['register'])){
 		if(!empty($_POST['pseudo'])){$user_pseudo = (string) $_POST['pseudo'];}
 		if(!empty($_POST['pass'])){
 			$user_pass = (string) $_POST['pass'];
-			$user_pass = password_hash($user_pass,PASSWORD_BCRYPT);
+			$user_pass = htmlspecialchars($user_pass);
+			$cleSecrete = "MaCleEstIncassable";
+			// $user_pass = encrypt($user_pass,$cleSecrete);
 		}
 		if(!empty($_POST['cpass'])){
 			$user_cpass = (string) $_POST['cpass'];
-			$user_cpass = password_hash($user_cpass,PASSWORD_BCRYPT);
+			$user_cpass = htmlspecialchars($user_cpass);
+			// $user_cpass = encrypt($user_cpass,$cleSecrete);
 		}
 		if(!empty($_POST['lastname'])){$user_lastname = (string) ucfirst($_POST['lastname']);}
 		$user_lastname = htmlspecialchars($user_lastname);
@@ -111,9 +135,11 @@ class Users extends Controller{
 		
 		$path_avatar="";
 		// Vérifier l'avatar ( pas obligatoire !!! )
-		// include 'scripts/move_avatar.php'; 	
+		if(!empty($_FILES) || isset($_FILES['avatar'])){
+			include 'scripts/move_avatar.php'; 	
+		}
 		// SI ok : inclure model addUser.php qui s'occupera de la redirection
-		// include 'models/addUser.php'; 
+			include 'models/addUser.php'; 
 		} //Fin du contrôle du post	
 		require 'views/elements/header.php';
 		require 'views/Users/Inscription.php';
@@ -121,3 +147,4 @@ class Users extends Controller{
 
 	}	
 }
+

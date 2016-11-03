@@ -6,11 +6,12 @@
 	if (!$bdd){
 		die("Connection false: " . mysqli_connect_error());
 	}
+	
 	//LES DROITS AU DEPART :
 	$is_admin = (int) 0;
 	$is_active_mail = (int) 0;
 	$is_gold = (int) 0;
-	
+	$path_avatar =(isset($GLOBALS['path_avatar']))?$GLOBALS['path_avatar']:"";
 	//SQL AJOUTER UN UTILISATEUR
 	$adduser = "INSERT INTO `users` (
 	`name`, `firstname`, `pseudo`,
@@ -31,14 +32,12 @@
 	//SEND QUERY
 	if(mysqli_query($bdd, $adduser)){
 		//REDIRECTION
-		// $Location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsOk';
-		// header("Location:$Location");
+		$Location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsOk';
+		header("Location:$Location");
 	} else {
 		//REDIRECTION
-		// $location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsFalse';
-		// header("Location:$location");
-		// echo 'erreur: '. $adduser .'<br>'.mysqli_error($bdd);
+		$location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsFalse';
+		header("Location:$location");
 	}
-	//A LA FIN DU SCRIPT IL REDIRIGE EN FONCTION DE L'ERREUR
 
 ?>

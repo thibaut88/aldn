@@ -116,7 +116,7 @@ if (!empty($_POST)||!empty($_FILES)){
 			if(!empty($_POST['postal_code'])){$modif_user .=" code_postal = ".$_POST['postal_code']." ";}
 			if(isset($path_avatar)){$modif_user .= " path_avatar = '".$path_avatar."'";}
 			//WHERE GET ID cest luser connecté
-			$modif_user .= " WHERE id_user = ".$_SESSION['logged_user_id']."";
+			$modif_user .= " WHERE id_user = ".$_SESSION['Auth']['id']."";
 
 			if (mysqli_query($bdd, $modif_user)) {
 				mysqli_close($bdd);

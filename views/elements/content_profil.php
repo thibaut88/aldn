@@ -2,7 +2,7 @@
 					  <?php
 					  //gere l'affichage ,
 					  //temporaire !!
-					  
+
 					  $historique = null;
 					  $panier = null;
 					  $messages = null;
@@ -13,7 +13,7 @@
 			<div class="container">
 										
 							<!-- row tabulation -->
-                            <div class="row tabs">
+                            <div class="row tabs" style="margin-top:25px;">
 							
 							
 							<!-- Debut navigation de gauche -->
@@ -39,7 +39,7 @@
 									
 									<!-- avatar image -->
 									<center>
-										<img width="80%" src="<?=$src?>"alt="votre image">
+										<img width="80%" src="<?=$src?>"alt="votre image de profil">
 									</center>
 									
 									<!-- debut form modifier avatar -->
@@ -48,7 +48,7 @@
 									enctype="multipart/form-data">
 									<div id="avatarContent">
 										<label class="btn btn-default form-control">
-												Browse <input name="avatar" class="" type="file" style="display: none;">
+												Browse <input name="changerAvatar" class="" type="file" style="display: none;">
 										</label>
 										<input class="btn btn-default form-control"  type="submit" name="" value="changer">
 									</div><!-- avatar content -->
@@ -97,21 +97,14 @@
 									
 							</div><!-- col-sm-3 -->
 							<!-- FIN partie de gauche -->
-								
-								
-								
-								
-								
-								
-								
-								
+				
 								<!-- DEBUT partie de droite !! -->
 												
 								<div class="col-sm-9"><!-- col-sm-9 rest in container -->
 								
 								
 								<!-- debut Content tab -->
-								<div class="tab-content">
+								<div class="tab-content"style="min-height:520px;">
 								
 					
 								<!-------------------------- NIVEAU 1 ------------------------------->						
@@ -167,10 +160,8 @@
                                     <div id="collapse2-One" class="accordion-body collapse in">
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-5">
-                                                    <img src="assets/img/fillers/filler2.jpg" alt="filler image">
-                                                </div><!-- col -->
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
+                                                 
                                                     <h3 class="no-margin no-padding">Changer votre pseudo</h3>
                                          		<!-- debut formulaire modifier pseudo -->
 												<form id="modify_pseudo"action="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/query_form_profil.php?id=$user_id';?>"method="post">
@@ -240,10 +231,7 @@
                                     <div id="collapse2-Three" class="accordion-body collapse">
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-5">
-                                                    <img src="assets/img/fillers/filler3.jpg" alt="filler image">
-                                                </div><!--col-->
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h3 class="no-margin no-padding">Changer votre ville</h3>
 													<!--debut form modifier ville -->
 													<form  id="modify_ville"action="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/query_form_profil.php?id=$user_id';?>"method="post">

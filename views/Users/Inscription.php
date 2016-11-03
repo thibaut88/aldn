@@ -113,7 +113,7 @@
                     <div class="row margin-vert-30">
                         <!-- Register Box -->
                         <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
-                            <form class="signup-page" method="post" action="">
+                            <form class="signup-page" method="post" action="" enctype="multipart/form-data">
                                 <div class="signup-header">
                                     <h2>Enregistrez un nouveau compte</h2>
                                     <p>Déjà membre? Cliquez
@@ -196,7 +196,7 @@
 										<div class="form-group ">
 										<!-- Bouton file avatar -->
 												<label  class="btn btn-default btn-file">
-												<input type="file" class="form-control margin-bottom-20"  style="display: none;">
+												<input name="avatar" type="file" class="form-control margin-bottom-20"  style="display: none;">
 												</label>
 										</div>
 									
