@@ -1,6 +1,7 @@
 
 <div class="container background-white">
 <div class="row">
+<div class="col-md-8 col-md-offset-2">
 
 <H1 >
 ADDITIF AUX STATUTS ADOPTES</H1>
@@ -24,8 +25,10 @@ t conformément à nos Statuts qui prévoient que les « adhérents-utilisateurs
 <p>
 Cette participation se traduit par le versement d' une seule somme forfaitaire par chèque à l' ordre de A.L.D.N, à chaque intervention à domicile, quelle que soit sa durée et quelle que soit le niveau de technicité. Cette somme forfaitaire et mutualisée est seulement fonction du nombre de kilomètres Aller/Retour effectué avec un maximum de 50 Km, d’où le tableau suivant :</p>
 
-
+</div>
+<div class="col-md-8 col-md-offset-2">
 <div class="container row">
+
 <table class="table">
 <tr>
 <td>De 0 à 20 Km Aller/Retour</td>
@@ -73,7 +76,7 @@ Cet additif a été adopté à l'unanimité par les membres du C.A. au cours de 
             <td>Birs Thierry</td>
 </tr>
         </table>
- 
+ </div>
 
 </div><!-- fin row -->
 </div><!-- fin container -->

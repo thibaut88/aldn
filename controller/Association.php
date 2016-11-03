@@ -87,17 +87,10 @@ class Association extends Controller{
 		// $Controller->loadElement('footer');
 	}
 	function Candidater(){
-		// $Controller = $GLOBALS['Controller'];
-		// $Controller->loadElement('header');
-		// $Controller->loadModul('logs');
-		// $Controller->loadModul('register');
+
 		require 'views/elements/header.php';
 		require 'views/Association/Candidater.php';
 		require 'views/elements/footer.php';
-		// $Controller->loadJs('navbar_fixed');
-		// $Controller->loadJs('dropcontact');
-		// $Controller->loadModul('contactme');
-		// $Controller->loadElement('footer');
 	}
 	function MentionsLegales(){
 		// $Controller = $GLOBALS['Controller'];

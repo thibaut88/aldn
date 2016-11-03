@@ -2,7 +2,7 @@
 					  <?php
 					  //gere l'affichage ,
 					  //temporaire !!
-
+	
 					  $historique = null;
 					  $panier = null;
 					  $messages = null;
@@ -105,8 +105,45 @@
 								
 								<!-- debut Content tab -->
 								<div class="tab-content"style="min-height:520px;">
-								
-					
+								<!-- AFFICHAGE DES ALERTES -->
+												<!-- alerte modifier pseudo -->
+								<?php
+								if (isset($AlerteSuccess) && $AlerteSuccess == "psok"){	 	?>
+								<div class="">Votre pseudo a bien été changé
+								<span onclick="this.parentElement.style.display='none'" 
+								class="w3-closebtn">&times;</span></p>
+								</div>
+								<?php
+								}
+								?>	
+											<!-- alerte modifier adresse -->
+										<?php
+									if (isset($AlerteSuccess) && $AlerteSuccess =="addr"){	?>
+									<div class="w3-panel w3-red w3-card-2">Votre adresse a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
+									<?php
+									} 
+									?>									
+										<!-- alerte modifier ville -->
+											<?php
+										if (isset($AlerteSuccess) && $AlerteSuccess =="city"){		?>
+										<div class="w3-panel w3-red w3-card-2">Votre ville a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
+										<?php
+										} 
+										?>	
+						<!-- alerte modifier code postal -->
+										<?php
+								if (isset($AlerteSuccess) && $AlerteSuccess =="cp"){?>
+									<div class="w3-panel w3-red w3-card-2">Votre code postal a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
+									<?php
+									} 
+									?>	
+													<!-- alerte modifier email -->
+										<?php
+									if (isset($AlerteSuccess) && $AlerteSuccess =="mail"){		?>
+										<div class="w3-panel w3-red w3-card-2">Votre email a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
+										<?php
+										} 
+										?>			
 								<!-------------------------- NIVEAU 1 ------------------------------->						
 								<!-- Debut pane Informations personnelles -->						
 								<div class="tab-pane fade in" id="sample-3a">
@@ -174,14 +211,7 @@
                                         </div><!-- panel body  -->
                                     </div><!-- panel content -->
                                 </div><!-- panel default modifier pseudo  -->
-										<!-- alerte modifier pseudo -->
-								<?php
-								if (!empty($_GET) && isset($_GET['ps'])){	
-								if($_GET['ps'] === 'ok' && !empty($_GET['ps'])) {?>
-								<div class="w3-panel w3-red w3-card-2">Votre pseudo a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
-								<?php
-								} }
-								?>	
+						
 		
 								
 								
@@ -206,15 +236,7 @@
                                         </div><!-- panel body  -->
                                     </div><!-- panel content   -->
                                 </div><!-- panel default modifier addresse  -->
-									<!-- alerte modifier adresse -->
-										<?php
-									if (!empty($_GET) && isset($_GET['addr'])){	
-									if($_GET['addr'] === 'ok' && !empty($_GET['addr'])) {?>
-									<div class="w3-panel w3-red w3-card-2">Votre adresse a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
-									<?php
-									} }
-									?>									
-													
+							
 								
 								
 								
@@ -244,15 +266,7 @@
                                         </div><!--panel body -->
                                     </div><!--panel content -->
                                 </div><!-- panel default modifier ville  -->
-								<!-- alerte modifier ville -->
-											<?php
-										if (!empty($_GET)&& isset($_GET['city'])){	
-										if($_GET['city'] === 'ok' && !empty($_GET['city'])) {?>
-										<div class="w3-panel w3-red w3-card-2">Votre ville a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
-										<?php
-										} }
-										?>	
-
+							
 														
 										
 								<!-- NIVEAU 4 -->
@@ -276,15 +290,7 @@
                                         </div><!-- panel body  -->
                                     </div><!-- panel content   -->
                                 </div><!-- panel default modifier code postal  -->
-								<!-- alerte modifier code postal -->
-										<?php
-									if (!empty($_GET)&& isset($_GET['cp'])){	
-									if($_GET['cp'] === 'ok' && !empty($_GET['cp'])) {?>
-									<div class="w3-panel w3-red w3-card-2">Votre code postal a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
-									<?php
-									} }
-									?>	
-												
+					
 								
 								
 																<!-- NIVEAU 5 -->
@@ -308,14 +314,7 @@
 										</div><!-- panel body  -->
                                     </div><!-- panel content   -->
                                 </div><!-- panel default modifier code postal  -->
-										<!-- alerte modifier email -->
-										<?php
-										if (!empty($_GET)&& isset($_GET['mail'])){	
-										if($_GET['mail'] === 'ok' && !empty($_GET['mail'])) {?>
-										<div class="w3-panel w3-red w3-card-2">Votre email a bien été changé<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span></p></div>
-										<?php
-										} }
-										?>
+						
                             </div>  <!-- End Accordion - Alternative -->
 		
                  </div><!-- row -->

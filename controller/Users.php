@@ -51,6 +51,7 @@ class Users extends Controller{
 		$displayUserProfil=((isset($_SESSION['Auth']['id']))&&(isset($_SESSION['Auth']['pseudo']))) ? true : false;
 		//Includes partials pages :
 		$Controller = $GLOBALS['Controller'];
+		$AlerteSuccess =(isset($GLOBALS['param'][1]))?$GLOBALS['param'][1]:false;
 		require 'views/elements/header.php';
 		require 'views/Users/Index.php';
 		require 'views/elements/footer.php';

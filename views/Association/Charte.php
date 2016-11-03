@@ -1,12 +1,11 @@
 
 <div class="container background-white">
-<h1><b>Association </b><small> / Charte associative</small></h1>
 
 <div class="row">
 <!-- FIL D'ARIANE -->
 
-<div class="col-lg-10 col-lg-offset-1">
-<h1>Charte</h1>
+<div class="col-md-8 col-md-offset-2">
+<h1>Charte associative</h1>
 
 <div id="acte1">
 <dl>
