@@ -1,4 +1,4 @@
-		
+
 		<div class="container background-white" style="margin-top:20px;">
 		<div class=" row">
 			<?php
@@ -9,19 +9,22 @@
 		</div>		
 		
 	<!-- CONTENEUR DE LA LISTE DES OFFRES -->
-<div class="container" id="content_offres" style="margin-top:20px;margin-bottom:20px;">
+<div class="container background-white" id="content_offres" style="margin-top:20px;margin-bottom:20px;">
 
 			<?php 
 			//LES ALERTES
 			
 			//Alerte pas de résultat
-			$displayNoResult=$this->Errors;
+			// $displayNoResult=$this->Errors;
 			// var_dump($displayNoResult);
-			if ($displayNoResult){ ?>
+			if ($alertNoResult){ ?>
 				<!-- ALERTE IL N'Y A PAS D'OFFRES -->
-				<div ><p>Aucune offre ne correspond à vos recherches</span>
-				<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
-				</p></div>
+			<div class="alert alert-success">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>Aucune offre ne correspond !!</strong>
+			</div>
+			
+			
 			<?php 
 			}	
 			?>
@@ -128,58 +131,27 @@
 		
 		
 		<div class="row">
-		
-						<!-- PAGINATION 2 -->
+						<!-- PAGINATION  -->
 			<div class="text-center">
-			   <ul class="pagination">
-				  <li><a href="#">&laquo;</a></li>
-				  <li><a href="#">1</a></li>
-				  <li><a href="#">2</a></li>
-				  <li class="active"><a href="#">3</a></li>
-				  <li><a href="#">4</a></li>
-				  <li><a href="#">5</a></li>
-				  <li><a href="#">&raquo;</a></li>
-			   </ul>
-			</div>
-			
+					<ul class="pagination">
+					
+							  <li><a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME'])?>Offres">&laquo;</a></li>
+					<?php
+						for ($i=1;$i<$this->last_page+1;$i++){  ?>
+							<li 
+							<?php  if($i==$this->current_page) {echo 'class="active"';} ?>
+							>
+									<a href="<?=WEBROOT?>Offres/<?=$i?>"><?=$i?></a>
+							  </li>
+					<?php	} ?>
+							<li><a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME'])?>Offres/<?=$this->last_page?>">&raquo;</a></li>
+							
+					</ul>
+			</div><!-- PAGINATION END -->
+						
 		</div><!-- ROW END PAGINATION -->
 		
-		
-	
-
-
-
-
 </div><!--FIN CONTENT CONTAINER  -->
-
-
-<?php
-		//PAGINATION 
-
-		// $per_page=5;
-
-		// $page = (isset($GLOBALS['parametre'])) ? $_GET['parametre']:1;
-
-		// var_dump($GLOBALS['param']);
-		// var_dump($GLOBALS['parametre']);
-
-		// la page commence à 0 et on multiplie par le nombre de pages
-		// $start_from = ($page-1)*$per_page;
-
-		// $query = "SELECT * FROM table LIMIT $start_from, $per_page";
-
-		// $total_pages = ceil($total_records/$per_page);
-
-		// echo "<center><a href='./Offres/'>premiere page</a>";
-
-
-		// for ($i=0;$i<$total_pages;$i++){
-		// echo "<a href='./Offres/".$i."'>".$i."</a> ";
-			
-		// }
-		// echo "<a href='./Offres/".$total_pages."'>Last Page</a></center>";
-?>
-
 
 
 

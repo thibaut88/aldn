@@ -4,11 +4,15 @@
 //REQUETE AFFICHER LES OFFRES PAR FILTRE
 
 class FilterOffers extends Model{
+	
+	
 	public $datas;
 	public $table;
 	public $sql;
 	public $Errors;
-	
+	public $last_page;
+	public $current_page;
+
 	
 	function read($fields='*'){
 		
@@ -33,7 +37,44 @@ class FilterOffers extends Model{
 			
 		// var_dump($filter);
 		var_dump($_POST);
+		
+		
+		
+		//recupère le total d'offres
+		$offers = "SELECT  COUNT(*) AS nb_offre FROM offers";
+		$retour = mysqli_query($conn, $offers) or die(mysqli_error($conn));
+		$donnees = mysqli_fetch_assoc($retour);
+		$total_offres = $donnees['nb_offre'];
+		
+		// offset
+		$per_page=6;
+		$url_depart = $GLOBALS['parametre'];
+		
+						
+		//total des pages 
+		$total_pages = ceil($total_offres/$per_page);
+		$this->last_page = $total_pages;
+		
+		
+		if ( $url_depart == "Offres" OR $url_depart == 1)
+		{
+				// première visite page 1
+				$page=1;
+				$this->current_page = $page;
+				// limite depart
+				$start_from = ($page-1)*$per_page; // LIMIT 0, 6
+		}
+		else
+		{
+				//page demandée
+				$page=$url_depart;
+				$this->current_page = $page;
+				// limite depart
+				$start_from = ($page-1)*$per_page; // LIMIT 0, 6				
 
+		}	
+		
+		
 		$temp_offers = "SELECT $fields FROM offers ";
 		
 		if($addjoin!==0){
@@ -78,20 +119,17 @@ class FilterOffers extends Model{
 				}
 			}	
 		}
+		$temp_offers.=" LIMIT   $start_from,  $per_page";
 		$this->sql = $temp_offers;
-		
-		var_dump($this->sql);
-		var_dump($this->Errors);
-		
 	
 		$resultat = mysqli_query($conn,$temp_offers) or die(mysqli_error($conn));
 		if (mysqli_num_rows($resultat) > 0) {
 		while($row = mysqli_fetch_assoc($resultat)){
 			$this->datas[] = $row;
 		}	
-		$this->Errors["resultat"] = false;
+		$this->Errors= false;
 		} else {
-			$this->Errors["resultat"] = true;
+			$this->Errors = true;
 			$this->datas = null;
 			$location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Offres/';
 			header("Location:$location");
