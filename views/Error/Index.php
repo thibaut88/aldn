@@ -12,7 +12,7 @@
                                 <form class="form-search search-404">
                                     <div class="input-append">
                                         <input type="text" class="span2 search-query">
-                                        <button type="submit" class="btn btn-primary">Rechercher</button>
+                                        <button type="submit" class="btn btn-primary" style="margin:10px;">Rechercher</button>
                                     </div>
                                 </form>
                             </div>

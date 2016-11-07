@@ -57,7 +57,11 @@ class Association extends Controller{
 		require 'views/elements/footer.php';
 	}
 	function Candidater(){
-
+		$get = $GLOBALS['parametre'];
+			$displayAlerte=false;
+		if($get=="isOk"){
+			$displayAlerte=true;
+		}else{$displayAlerte=false;}
 		require 'views/elements/header.php';
 		require 'views/Association/Candidater.php';
 		require 'views/elements/footer.php';

@@ -1,4 +1,25 @@
 
+
+<script type="text/javascript">
+$(function(){
+				var $tabs = $('#menugauche');
+				$tabs = $tabs.find('a');
+	
+			$tabs.click(function(){
+				
+				$elem = $(this);
+				$val = $elem.attr('data-titre');
+				console.log($(this));
+				console.log($val );
+				$('#title').hide().html($val).fadeIn();
+				
+			});
+	
+});
+			
+</script>
+
+
 					  <?php
 					  //gere l'affichage ,
 					  //temporaire !!
@@ -25,10 +46,10 @@
 									<div class="panel panel-primary">
 										<!-- Panel heading -->
 									  <div class="panel-heading">
-										<h3 class="panel-title">Vos informations</h3>
+										<h3 id="title" class="panel-title text-center">Vos informations</h3>
 									  </div><!-- Fin Panel Heading -->
 										<!-- Panel Body -->
-									<div class="panel-body">
+									<div class="panel-body" style="padding:0px;">
 									<?php 
 									if(!empty($datas['path_avatar'])){
 										$src= str_replace('index.php','',$_SERVER['SCRIPT_NAME'])."".$datas['path_avatar'];
@@ -62,22 +83,22 @@
 									<!-- BOTTOM NAV -->
 									<!-- NAVIGATION USER PROFILS -->
 									<!-- Tabulations Onglets de  navigation -->
-                                    <ul class="nav nav-pills nav-stacked">
+                                    <ul id="menugauche"class="nav nav-pills nav-stacked">
                                         <li class="active">
-                                            <a href="#sample-3a" data-toggle="tab">
+                                            <a href="#sample-3a" data-toggle="tab" data-titre=" Informations personnelles">
                                                 <i class="fa-gears"> </i> Informations personnelles</a>
                                         </li>
                                         <li>
-                                            <a href="#sample-3b" data-toggle="tab">
+                                            <a href="#sample-3b" data-toggle="tab" data-titre="Panier">
                                                 <i class="fa-shopping-cart"> </i> Panier</a>
 												
                                         </li>
                                         <li>
-                                            <a href="#sample-3c" data-toggle="tab">
+                                            <a href="#sample-3c" data-toggle="tab" data-titre=" Historiques d'achats">
                                                 <i class="fa-tasks"> </i> Historiques d'achats</a>
                                         </li>
                                         <li>
-                                            <a href="#sample-3d" data-toggle="tab">
+                                            <a href="#sample-3d" data-toggle="tab" data-titre="Messagerie">
                                                 <i class="fa-envelope-o"> </i> Messagerie</a>
                                         </li>
 										<!-- STATUT Utilisateur is ADMIN -->
@@ -94,9 +115,17 @@
 													
 										
                                     </ul><!-- Fin navigation infos user -->
-									
 							</div><!-- col-sm-3 -->
 							<!-- FIN partie de gauche -->
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 								<!-- DEBUT partie de droite !! -->
 												
@@ -104,7 +133,7 @@
 								
 								
 								<!-- debut Content tab -->
-								<div class="tab-content"style="min-height:520px;">
+								<div class="tab-content"style="min-height:450px!important;padding:0px;">
 								<!-- AFFICHAGE DES ALERTES -->
 												<!-- alerte modifier pseudo -->
 								<?php

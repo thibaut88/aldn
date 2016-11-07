@@ -19,6 +19,13 @@ class Offres extends Controller{
 /** PAGE D'OFFRES **/
 	function Index(){
 		
+		$get = $GLOBALS['parametre'];
+			$alertDeloffer =false;
+		if($get = 'delOk'){
+			$alertDeloffer =true;
+		}elseif($get ='delNo'){
+			$alertDeloffer =false;
+		}
 		//ON RECUPERE L'INPUT CATEGORIE OFFRE
 		require 'models/categoryOffer.php';
 		$this->modelCategoryOffersType = $CategoryOffers->read();
@@ -65,7 +72,15 @@ class Offres extends Controller{
 	
 /** DEPOSER UNE ANNONCE ***/
 	function Deposer(){
-		
+
+		//controlle si l'user est connecté pour l'afficher dans les infos de l'offre
+			$userInfos =false;
+		if(isset($_SESSION['Auth']) && !empty($_SESSION['Auth']['id']) && !empty($_SESSION['Auth']['pseudo'])){
+			$userInfos =true;
+		}
+		else{
+			$userInfos =false;
+		}
 		//ON RECUPERE L'INPUT CATEGORIE OFFRE
 		require 'models/categoryOffer.php';
 		$this->modelCategoryOffersType = $CategoryOffers->read();
@@ -77,7 +92,7 @@ class Offres extends Controller{
 		// GESTION DES ALERTES 
 		$Controller = $GLOBALS['Controller'];
 		$get = $GLOBALS['parametre'];
-		$this->alerteDeposer="";
+		$this->alerteDeposer=null;
 		if($get == "AddOfferIsOk"){
 				$this->alerteDeposer="ok";
 		}elseif($get == "addOfferIsFalse"){
@@ -91,6 +106,7 @@ class Offres extends Controller{
 	
 /** VOIR LES DETAILS DE L'OFFRE **/
 	function Details(){
+		
 		// NUMERO DE L'OFFRE
 		$offer_id = $GLOBALS['parametre'];
 		// ON RECUPERE L'INPUT CATEGORIE OFFRE
@@ -102,7 +118,7 @@ class Offres extends Controller{
 		$this->modelCategoryTime = $CategoryTime->read();
 		$inputtimes=$this->modelCategoryTime;
 		$Controller = $GLOBALS['Controller'];
-
+		// ON RECUPERE L'OFFRE DEMANDEE
 		require 'models/showOffer.php';
 		$this->offerDetail = $showOffer->lire($offer_id);
 		$offer = $this->offerDetail;

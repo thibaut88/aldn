@@ -111,7 +111,7 @@ foreach($inputtype as $key=>$value){
 				</div>
 				
 				<!-- si connecté -->
-				<?php if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo'])){ ?>
+				<?php if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo']) && $_SESSION['Auth']['email']== $offer['email_offer']){ ?>
 				
 					<div class="form-group">
 						<a href="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/deleteOffer.php?idOffer='.$offer['id_offer']?>">	
@@ -119,17 +119,18 @@ foreach($inputtype as $key=>$value){
 						<i class=" fa fa-envelope" aria-hidden="true"> supprimer l'annonce</i>
 						</button></a>
 					</div>
-			
-					<div class="form-group">
+				<?php
+				}
+				 ?>
+				 	<div class="form-group">
 					<button style="" class="btn btn-default  form-control" type="submit"name="send">
 					<i class=" fa fa-envelope" aria-hidden="true"> Voir le numéro</i>  </button>
 					</div>
 							<div id="contentNumeroUser">
 							</div>
-
-				<?php
-				}
-				 ?>
+							
+							
+							
 				 </div>
 
 		</div><!-- COL RIGHT-->

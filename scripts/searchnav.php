@@ -1,32 +1,8 @@
-<script type="text/javascript">
-
-//Contenu des offres 
-$(function(){
-	var offres = $("#content_offres");
-	offres.css('border','1px solid grey');
-});
-//RECHERCHE SMALL ECRAN
-function searchsmall() {
-    var x = document.getElementById("search_small");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
-
-
-
-
-
-
 
 
 <div   id="searchnav" class="col-xs-12 col-sm-8 col-sm-offset-2"
 			style="padding-bottom:20px;
-			background:rgba(40,40,40,0.2);
+			background:rgba(250,250,250,1);
 			">
 					<!-- TITLE NAV -->
 					<h2 style="line-height:80px!important;text-align:center"class="">Rechercher une offre</h2>

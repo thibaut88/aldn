@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="'margin-top:100px;margin-bottom:80px;">
 
 		<div id="partenaires"class="row-padding">
 <!-- Portfolio -->
@@ -16,9 +16,9 @@
 
 		
 		                   <!-- Portfolio Item -->
-                            <li class="portfolio-item col-xs-12 col-sm-3 col-xs-4 margin-bottom-40"style="min-width:200px!important;">
+                            <li class=" portfolio-item col-xs-12 col-sm-3 col-xs-4 margin-bottom-40"style="min-width:200px!important;">
                                 <a href="#" style="display:block;width:80%;margin:auto;">
-                                    <figure class="animate fadeInLeft" >
+                                    <figure class="partenaire" >
                                         <img src="<?=$value['image']?>" width="100%"height="160px;"title="image"alt="image" >
                                         <figcaption>
                                             <h3><?=ucfirst($value['nom'])?></h3>
@@ -46,28 +46,35 @@
 
 		<script type="text/javascript">
 		
+	
 		
-		// $(document).ready(function(){
+		$(document).ready(function(){
 			
-			// var $parts = $('.Partenaire');
-			// var $partsLen = $parts.length;
-			// $parts.each(function(){
-				// $(this).css('display','none');
-			// });
+		var $partenaires= $(".partenaire");
+		var taille= $partenaires.length;
+		var varCounter = 0;
+		var showPartenaire = function(elem){
+		var $elem = $(elem);
+			$elem.addClass('animate fadeInLeft ');
 
-		// var varCounter = 0;
-		// var showPartenaire = function(){
-			 // if(varCounter <= $partsLen) {
-				 // var $elem = $($parts[varCounter]);
-				// $elem.fadeIn('slow');
-				  // varCounter++;
-			 // } else {
-				  // clearInterval(showPartenaire);
-			 // }
-		// };
+		}		
+				
+			
+		//each
+		$partenaires.each(function(){
+				ajouterAnim($(this));
+		});
+		
+		//func anim	
+		function ajouterAnim(elem){
+		var $elem = $(elem);
+			setInterval(showPartenaire($elem), 5000);
+		if(0==0){
+			clearInterval(showPartenaire);
+		}	
+		}//end ajout anim
 
-						 // setInterval(showPartenaire, 230);
 
-		// });
+		});
 
 		</script>

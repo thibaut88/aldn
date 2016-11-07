@@ -51,6 +51,8 @@ $titlePage="defaut";
 						<!-- CONFIG -->
 						<?php
 						include('config.php');
+						include('views/moduls/button_top.php');
+						
 						?>
 						
             <!-- JS -->
@@ -137,6 +139,7 @@ $titlePage="defaut";
 			}
 		}
 	</script><!-- JAVASCRIPT -->	
+	
 <!-- End JS -->
 </body>
 </html>

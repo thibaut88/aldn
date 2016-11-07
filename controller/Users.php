@@ -85,6 +85,7 @@ class Users extends Controller{
 				$_SESSION['Auth']['is_admin'] = $user['is_admin'];
 				$_SESSION['Auth']['is_active_mail'] = $user['is_active_mail'];
 				$_SESSION['Auth']['is_gold'] = $user['is_gold'];
+				$_SESSION['Auth']['email'] = $user['adresse_mail'];
 				$location=WEBROOT."Association/LogsOk";
 				header("Location:$location");
 			}

@@ -1,8 +1,10 @@
 <?php
 //SUPPRIMER UNE OFFRE
 session_start();
-// $conn = mysqli_connect('locahost','admin','admin','aldn2');
-$id_offer=$_GET['idOffer'];
+
+$id_offer= (int) $_GET['idOffer'];
+
+var_dump($id_offer);
 
 $servername = "localhost";
 $username = "admin";
@@ -17,15 +19,16 @@ if (!$conn) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM temporary_offers WHERE id_tmp_offer = $id_offer";
+$sql = "DELETE FROM offers WHERE id_offer = $id_offer";
 
 if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
-$location = str_replace('deleteOffer.php','',$_SERVER['SCRIPT_NAME']).'../Offres/OfferDelok';
+$location = str_replace('deleteOffer.php','',$_SERVER['SCRIPT_NAME']).'../Offres/delOk';
 header("Location:$location");
 } else {
-$location = str_replace('deleteOffer.php','',$_SERVER['SCRIPT_NAME']).'../Offres/OfferDelNo';
+$location = str_replace('deleteOffer.php','',$_SERVER['SCRIPT_NAME']).'../Offres/delNo';
 header("Location:$location");
+echo mysqli_error($conn);
 }
 
 

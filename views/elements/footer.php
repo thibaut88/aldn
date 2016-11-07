@@ -52,6 +52,9 @@
                                 <li>
                                     <a class="fa-users" href="<?=WEBROOT?>Offres">Voir les offres</a>
                                 </li>
+								       <li>
+                                    <a class="fa-users" href="<?=WEBROOT?>Association/Contacts">Contacts</a>
+                                </li>
 							</ul>
                             <div class="clearfix"></div>
                         </div>
