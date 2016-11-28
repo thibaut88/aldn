@@ -2,10 +2,10 @@
 		
 		if(isset($_POST)&&!empty($_POST['sendAdhesion']) && $_POST['acceptTerms']=="on"){
 			
-			$conn = mysqli_connect('localhost','admin','admin',"aldn2");
+			require'../database.php';
 			
 			$lastname = (isset($_POST['lastname']) && !empty($_POST['lastname']))?(string)$_POST['lastname']:"";
-			$fistname = (isset($_POST['fistname']) && !empty($_POST['fistname']))?(string)$_POST['fistname']:"";
+			$firstname = (isset($_POST['fistname']) && !empty($_POST['fistname']))?(string)$_POST['fistname']:"";
 			$email = (isset($_POST['email']) && !empty($_POST['email']))?(string)$_POST['email']:"";
 			$pseudo = (isset($_POST['pseudo']) && !empty($_POST['pseudo']))?(string)$_POST['pseudo']:"";
 			$password = (isset($_POST['pass']) && !empty($_POST['pass']))?(string)$_POST['pass']:"";
@@ -19,27 +19,42 @@
 			
 			$is_admin = (int) 0;
 			$is_active_mail = (int) 0;
-			
-			
-			$sql = "insert into users ( name,firstname, pseudo,password,c_password,adresse_mail,adresse,phone,is_admin,is_active_mail,is_gold,ville,code_postal,date_inscription)
-			VALUES ( '$lastname','$fistname','$pseudo','$password','$c_password', '$email', '$addresse','$phone',$is_admin,$is_active_mail,$membre,'$city',$postal_code,NOW() )";
-			
-			//INCLURE SCRIPT ENVOYER EMAIL AVEC VALIDATION
-			//PAIEMENT AVANT TOUT CA 
-			
-			
-			if(mysqli_query($conn, $sql)){
-				$location = "../Association/Candidater/isOk";
-				header("Location:$location");
-			}else{
-				$location = "../Association/Candidater/isNo";
-				header("Location:$location");
-			}
-			
-			
-			
-			
-			
-		}
 		
+			$nomavatar="";
+				if(!empty($_FILES) || isset($_FILES['avatar'])){
+					$location=str_replace('sendAdhesionEmail.php','',$_SERVER['SCRIPT_NAME']).'move_avatar.php';
+					include $location;
+				}
+				
+			if($password == $c_password){
+
+				$sql = "INSERT INTO `users` (
+				`name`, `firstname`, `pseudo`,
+				`password`, `email`,
+				`addresse`, `phone`, `is_admin`, 
+				`is_active_mail`, `is_gold`, 
+				`ville`, `code_postal`,`path_avatar`,
+				`date_inscription`
+				) VALUES (
+				'$firstname', '$firstname','$pseudo', MD5('$password'),
+				'$email','$addresse','$phone', $is_admin,
+				$is_active_mail, $membre,'$city', '$postal_code','$nom_avtar',NOW())";
+					
+
+				if(mysqli_query($conn, $sql)){
+							$location = "../Association/Candidater/isOk";
+							header("Location:$location");
+				}else{
+							$location = "../Association/Candidater/isNo";
+							header("Location:$location");
+				}
+				
+			}
+					
+			}else{
+				$location="../Association/Candidater/isNo";
+				header("Location:$location");
+			}		
+			
+	
 		

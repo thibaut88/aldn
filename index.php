@@ -1,7 +1,8 @@
 <?php
-$WEBROOT =  str_replace('index.php','',$_SERVER['SCRIPT_NAME']);
 session_start();
-$titlePage="defaut";
+$WEBROOT =  str_replace('index.php','',$_SERVER['SCRIPT_NAME']);
+$titre=explode('/',$_GET['p']);
+$titlePage=(isset($titre[1]))?$titre[1]:'index';
 ?>
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
@@ -20,9 +21,9 @@ $titlePage="defaut";
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <!-- Favicon  -->
         <link href="favicon.ico" rel="shortcut icon">
+        <!-- Template CSS -->
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="<?=$WEBROOT?>assets/css/bootstrap.css" rel="stylesheet">
-        <!-- Template CSS -->
         <link rel="stylesheet" href="<?=$WEBROOT?>assets/css/animate.css" rel="stylesheet">
         <link rel="stylesheet" href="<?=$WEBROOT?>assets/css/nexus.css" rel="stylesheet">
         <link rel="stylesheet" href="<?=$WEBROOT?>assets/css/responsive.css" rel="stylesheet">
@@ -34,28 +35,26 @@ $titlePage="defaut";
 		<link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-		<!-- INCLURE LES SCRIPTS ET CSS DYNAMIQUEMENT -->
-		<link href="<?php 
-		//str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'css/index.css'?>"rel="stylesheet"type="text/css">
-		<link href="<?php 
-		//str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'css/animations.css'?>"rel="stylesheet"type="text/css">
-		<?php
-		//echo "<script src='".str_replace('index.php','',$_SERVER['SCRIPT_NAME'])."js/dropcontact.js'type='text/javascript'></scrip"; 
-		//echo "<script src='".str_replace('index.php','',$_SERVER['SCRIPT_NAME'])."js/navbar_fixed.js'type='text/javascript'></script>"; 
-		?>
 		<!-- JQuery -->
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script> 
-		
-  </head>
-    <body>
-						<!-- CONFIG -->
-						<?php
-						include('config.php');
-						include('views/moduls/button_top.php');
+		<!--MES SCRIPTS && CSS->
+		<!-- NAVBAR FIXED JQUERY -->
+		<!--<script src="js/navbar_fixed.js" type='text/javascript'></script>-->
+		<!-- Mes animations CSS -->
+		<link href="<?=$WEBROOT?>css/animate.css" rel="stylesheet" type="text/css">
+		<link href="<?=$WEBROOT?>css/animate2.css" rel="stylesheet" type="text/css">
+		<link href="<?=$WEBROOT?>css/animations.css" rel="stylesheet" type="text/css">
+		<link href="<?=$WEBROOT?>css/index.css" rel="stylesheet" type="text/css">
+</head><!-- End Head -->
+<body><!-- Start body -->
+
+			<?php
+				// Add Config + Btn Ht Page
+			include('config.php');
+			include('views/moduls/button_top.php');
+			?>
 						
-						?>
-						
-            <!-- JS -->
+            <!-- Javascript Template-->
             <script type="text/javascript" src="<?=$WEBROOT?>assets/js/jquery.min.js" type="text/javascript"></script>
             <script type="text/javascript" src="<?=$WEBROOT?>assets/js/bootstrap.min.js" type="text/javascript"></script>
             <script type="text/javascript" src="<?=$WEBROOT?>assets/js/scripts.js"></script>
@@ -73,74 +72,5 @@ $titlePage="defaut";
             <script src="<?=$WEBROOT?>assets/js/modernizr.custom.js" type="text/javascript"></script>
 			
 
-	<script type="text/javascript">
-		//TOGGLE ONGLET EMPLOI
-		function dropEmploi() {
-			var x = document.getElementById("contentEmploi");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE ONGLET IMMOBILIER
-		function dropIMMO() {
-			var x = document.getElementById("immobilier");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE ONGLET REDIGER UN ACTE
-		function dropRegiderUnActe() {
-			var x = document.getElementById("RedigerUnActe");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE ONGLET ASSOCIATION
-		function dropAssociation() {
-			var x = document.getElementById("associationId");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE ONGLET MON COMPTE
-		function monCompte(){
-				var x = document.getElementById("compteId");
-			if (x.className.indexOf("w3-show") == -1) { 
-				x.className += " w3-show";
-		   } else  {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE MODULS CONNECTION
-
-		function openlogs() {
-			var x = document.getElementById("logins");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			}else {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-		//TOGGLE MODULS INSCRIPTION
-		function openregister() {
-			var x = document.getElementById("Idregister");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-		   } else  {
-				x.className = x.className.replace(" w3-show", "");
-			}
-		}
-	</script><!-- JAVASCRIPT -->	
-	
-<!-- End JS -->
-</body>
-</html>
-<!-- === END FOOTER === -->
+</body><!-- End body -->
+</html><!-- End page -->

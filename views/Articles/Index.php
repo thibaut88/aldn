@@ -1,5 +1,4 @@
 
-<div class="container">
 			<?php
 			// Si l'utilisateur est pas connecté
 			 if ($displayShouldConnect){?>
@@ -7,6 +6,16 @@
 			<div class="alert alert-warning">
 			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			  <strong>Il faut être connecté pour utiliser le panier !!</strong>
+			</div>
+			</div>
+			<?php } 		
+			
+			// Si pas de resultat 
+			 if ($diplay_no_result){?>
+			<div class="container">
+			<div class="alert alert-danger">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong>aucun article </strong>
 			</div>
 			</div>
 			<?php } 
@@ -21,7 +30,8 @@
 			</div>
 			<?php } ?>
 			
-			
+		<div class="container">
+	
 <div class="row">
 	
 	
@@ -40,10 +50,10 @@
 	if(count($articles)>0){
 		foreach ($articles as $k=>$v){?>
 					<?php $type = ($v['payant']==1)? "oui":"non"; ?>
-			<div  class="row ArticleRow w3-card-2 <?=$type?>">
+			<div  class="row ArticleRow  <?=$type?>">
 			
 			
-			<div class="col-lg-4 ArticleInfos" >
+			<div class=" col-xs-12  col-md-8 col-lg-4 ArticleInfos" >
 
 				<h2><a href="javascript:void(0)"><?= $v['nom_article'];?></a></h2>
 				<p>DESCRIPTION</p>
@@ -52,19 +62,20 @@
 				<tr>
 				<td>Date d'ajout :</td>
 				<?php 
-				$table = explode('-',$v['date_ajout_article']);
+				$table = explode('-',$v['date_ajout']);
 				$months = array("01"=>'janvier',"02"=>'février',"03"=>'mars',"04"=>'avril',"05"=>'mail',"06"=>'juin',
 				"07"=>'juillet',"08"=>'août',"09"=>'sept',"10"=>'oct',"11"=>'nov',"12"=>'déc');
 				$year = $table[0];
 				$month = $table[1];
 				$day = $table[2];
-
+				$day=explode(' ',$day);
+				$day=$day[0];
 				?>
 				<td>le <?=$day.' '.$months[$month].' '.$year?></td>
 				</tr>
 				<tr>
 				<td>Catégorie :</td>
-				<td><?= $v['category_article']?></td>
+				<td><?= $v['categorie']?></td>
 				</tr>
 					<?php if($v['payant']==1){ ?>
 
@@ -95,7 +106,7 @@
 			<div class="col-lg-4 ArticleButtons" >
 			<!-- IMAGE DU PDF -->
 			
-			<p><img class="w3-hide-small" src="<?=$v['link_image_article']?>"></p>
+			<p><img class="hidden-xs" src="<?=$v['vignette']?>"></p>
 			
 			<?php if($type==="non"){ ?>
 			<p class=" buttonArticle">
@@ -121,45 +132,5 @@
 			
 			</div><!-- container -->
 
-			
-			
-			<!-- SCRIPTS -->
-			<script type="text/javascript">
-			
-				//MONTRER LES ARTICLES GRATUITS
-				function showFree(){
-
-					var $free = $('.non');
-					var $buy = $('.oui');
-					
-					$buy.each(function(){
-						console.log(this);
-						$(this).fadeOut();
-						
-					});
-					$free.each(function(){
-						console.log(this);
-						$(this).fadeIn();
-						
-					});
-				}
-				//MONTRER LES ARTICLES PAYANTS
-				function showBuy(){
-
-					var $free = $('.non');
-					var $buy = $('.oui');
-					
-					$free.each(function(){
-						$(this).fadeOut();
-						
-					});
-					$buy.each(function(){
-						$(this).fadeIn();
-						
-					});
-				}
-			
-		
-			
-			</script>	
+<script type="text/javascript" src="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME'])?>js/articles.js?>"></script>	
 		

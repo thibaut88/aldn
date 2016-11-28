@@ -4,7 +4,7 @@
 			// Si l'utilisateur est connecté : Afficher alert connecté
 			 if ($displayAlerte=="LogsOk"){?>
 			<div class="container">
-			<div class="alert alert-success">
+			<div class="alert alert-success animated bounce">
 			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			  <strong>Bienvenue, vous êtes connecté !!</strong>
 			</div>
@@ -13,7 +13,7 @@
 			// Si l'utilisateur est deconnecté : Afficher alert pas connecté
 			if($displayAlerte=="Redirect"){ ?>
 			<div class="container">
-			<div class="alert alert-warning">
+			<div class="alert alert-warning  animated bounce">
 			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			  <strong>Vous n'êtes pas connecté !!</strong>
 			</div>
@@ -48,12 +48,14 @@
 										if($i==1){
 											echo '<div class="item active" >';
 											echo '<img src="'.$value['img_path'].'" "  style="height:440px;width:100%">';
-											echo "<div  class=' bg-success animate fadeIn' style='height:40px;'><h1  style='height:40px;margin:0px;' class=' bg-success text-center'>".$value['img_titre']."</h1></div>";
+											echo "<div  class=' bg-success animate fadeIn' style='height:40px;'>
+											<h1  style='height:40px;margin:0px;' class=' bg-success text-center'>".$value['img_titre']."</h1></div>";
 											echo '</div>';		
 										}else{
 											echo '<div class="item">';
 											echo '<img src="'.$value['img_path'].'" "  style="height:440px;width:100%">';
-											echo "<div class=' bg-warning  animate fadeIn' style='height:40px;'><h1  style='height:40px;margin:0px;' class=' bg-warning text-center'>".$value['img_titre']."</h1></div>";
+											echo "<div class=' bg-warning  animate fadeIn' style='height:40px;'>
+											<h1  style='height:40px;margin:0px;' class=' bg-warning text-center'>".$value['img_titre']."</h1></div>";
 											echo '</div>';										
 										}
 									} ?>

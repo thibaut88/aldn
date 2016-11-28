@@ -1,6 +1,4 @@
 <?php
-//MODEL table users
-//RECUPERE LA L'UTILISATEUR PASSER AU PARAMETRE
 class UsersModel extends Model{
 
 	public $datas;

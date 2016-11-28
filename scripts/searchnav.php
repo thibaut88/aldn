@@ -1,11 +1,8 @@
-
-
 <div   id="searchnav" class="col-xs-12 col-sm-8 col-sm-offset-2"
-			style="padding-bottom:20px;
-			background:rgba(250,250,250,1);
-			">
-					<!-- TITLE NAV -->
-					<h2 style="line-height:80px!important;text-align:center"class="">Rechercher une offre</h2>
+			style="padding-bottom:20px;background:rgba(250,250,250,1);">
+		
+		<!-- TITLE NAV -->
+		<h2 style="line-height:80px!important;text-align:center"class="">Rechercher une offre</h2>
 				
 
 		<!-- DEBUT FORMULAIRE -->
@@ -34,7 +31,7 @@
 					<div class="col-xs-6">
 					<div class="form-group">
 							<select class="form-control" name="duree">
-								  <option value="default" disabled selected>durée </option>
+								  <option value="0" disabled selected>durée </option>
 									<?php
 								  foreach($inputtimes as $key){
 									  echo "<option value='".$key['id_category_time']."'>".$key['category_time_name']."</option>";}
@@ -48,9 +45,9 @@
 				
 						<center class="row">
 						<p for="typeformation">avec ou sans diplôme ?</p>
-						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="avec" >avec</label>
-						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="sans">sans</label>
-						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="tous" >tous</label>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="1" >avec</label>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="0">sans</label>
+						<label class=" col-xs-4"> <input class="radio" type="radio" name="diplome" value="2" >tous</label>
 						</center>
 					
 					</div><!-- GROUP -->
@@ -61,7 +58,7 @@
 						<input class=" form-control"  type='text' name="ville" placeholder="ville">
 						</div>					
 						<div class="col-xs-12 col-sm-6">	
-						<input class="  form-control"  type='number' name="code_postal" placeholder="code postal">
+						<input class="  form-control"  type='text' name="code_postal" placeholder="code postal">
 						</div>
 					</div>
 					</div>
@@ -78,11 +75,10 @@
 					</div>
 					
 					<center>
-						<input class="btn btn-default btn-md" type="submit" name="send"value="Rechercher">
+						<input class="btn btn-default btn-md" type="submit" name="Rechercher"value="Rechercher">
 					</center>
 			
 		</form><!-- END FORM -->
-		
 </div><!--   #searchnava-->
 
 

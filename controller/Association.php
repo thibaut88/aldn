@@ -1,34 +1,24 @@
 <?php
 class Association extends Controller{
-	public $datas;
-	// public $Slider_last_offers;
-	// public $Slider_last_articles;
+
 	public $Slider_offers;
 	
 	function Index(){
 		// INCLUS LE MODEL SLIDER_OFFERS
 		require 'models/slider_offers.php';
 		$this->Slider_offers=$SliderOffers->read();
-		// INCLUS LE MODEL SLIDER_DERNIERS ARTICLES
-		// require 'models/last_articles.php';
-		// $this->Slider_last_articles=$LastArticles->read();
-		// INCLUS LE MODEL DERNIERES OFFRES
-		// require 'models/last_offers.php';
-		// $this->Slider_last_offers=$LastOffers->read();
 		//Récupère le Controlleur en cours:
 		$Controller = $GLOBALS['Controller'];
-		//On récupère l'url pour afficher une alerte si erreur :
+		//get url 
 		$get = $GLOBALS['parametre'];
 		$displayAlerte=false;
 		if ($get==="LogsOk"){$displayAlerte="LogsOk";}
 		else if($get==="Redirect"){$displayAlerte="Redirect";}
 		else{$displayAlerte=false;}
-		//includes partials pages :
+		//pages
 		require 'views/elements/header.php';
 		require 'views/Association/Index.php';
 		require 'views/elements/footer.php';
-		// $Controller->loadJs('sliderHomeOffers');
-		// $Controller->loadJs('sliderHomeArticles');
 
 	}
 	function Contacts(){
@@ -58,7 +48,7 @@ class Association extends Controller{
 	}
 	function Candidater(){
 		$get = $GLOBALS['parametre'];
-			$displayAlerte=false;
+		$displayAlerte=false;
 		if($get=="isOk"){
 			$displayAlerte=true;
 		}else{$displayAlerte=false;}

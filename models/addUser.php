@@ -1,6 +1,4 @@
 <?php
-	//MODEL AJOUTER UTILISATEUR 
-	//TABLE "users"
 
 	$bdd = $GLOBALS['conn'];
 	if (!$bdd){
@@ -11,33 +9,27 @@
 	$is_admin = (int) 0;
 	$is_active_mail = (int) 0;
 	$is_gold = (int) 0;
-	$path_avatar =(isset($GLOBALS['path_avatar']))?$GLOBALS['path_avatar']:"";
+
+
 	//SQL AJOUTER UN UTILISATEUR
 	$adduser = "INSERT INTO `users` (
 	`name`, `firstname`, `pseudo`,
-	`password`, `c_password`, `adresse_mail`,
-	`adresse`, `phone`, `is_admin`, 
+	`password`, `email`,
+	`addresse`, `phone`, `is_admin`, 
 	`is_active_mail`, `is_gold`, 
-	`ville`, `code_postal`,`date_inscription`,
-	`path_avatar`
+	`ville`, `code_postal`,`path_avatar`,
+	`date_inscription`
 	) VALUES (
-	'".$user_lastname."','".$user_firstname."',
-	'".$user_pseudo."','".$user_pass."',
-	'".$user_cpass."','".$user_email."'
-	,'".$user_addresse."','".$user_phone."',
-	".$is_admin.",".$is_active_mail.",".$is_gold.",
-	'".$user_city."',".$user_cp.",
-	NOW(),'".$path_avatar."')";
+	'$user_lastname', '$user_firstname','$user_pseudo', MD5('$user_pass'),
+	'$user_email','$user_addresse','$user_phone', $is_admin,
+	$is_active_mail, $is_gold,'$user_city', '$user_cp','$path_avatar',NOW())";
 	
 	//SEND QUERY
 	if(mysqli_query($bdd, $adduser)){
-		//REDIRECTION
-		$Location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsOk';
-		header("Location:$Location");
+		$location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsOk';
+		header("Location:$location");
 	} else {
-		//REDIRECTION
+		echo mysqli_error($bdd);
 		$location=str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'Users/AddUserIsFalse';
 		header("Location:$location");
 	}
-
-?>

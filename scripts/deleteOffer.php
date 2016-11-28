@@ -4,19 +4,7 @@ session_start();
 
 $id_offer= (int) $_GET['idOffer'];
 
-var_dump($id_offer);
-
-$servername = "localhost";
-$username = "admin";
-$password = "admin";
-$dbname = "aldn2";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require '../database.php';
 
 // sql to delete a record
 $sql = "DELETE FROM offers WHERE id_offer = $id_offer";

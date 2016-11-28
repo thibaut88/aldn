@@ -13,7 +13,7 @@ class Articles extends Controller{
 		require 'models/articles.php';
 		$this->articles = $ArticlesModel->readTable();
 		$Controller = $GLOBALS['Controller'];
-		
+		$diplay_no_result=(!empty($this->articles))?false:true;
 		//Include partials page :
 		require 'views/elements/header.php';
 		require 'views/Articles/Index.php';

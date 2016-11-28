@@ -24,7 +24,7 @@
                             <br>
                             <!-- Contact Form -->
 							<div class='row'>
-                            <form class="animate fadeInLeft col-md-12" action="<?=WEBROOT?>scripts/form_send_contact.php" method="POST">
+                            <form class="animate fadeInLeft col-md-12" action="<?=WEBROOT?>scripts/sendMailContact.php" method="POST">
                                 <label>Nom</label>
                                 <div class="row margin-bottom-20">
                                     <div class="col-md-6 col-md-offset-0">
@@ -54,12 +54,13 @@
 							</div>
 							
 								<div class="row">
-								<H2 class="w3-xxlarge w3-allerta w3-border w3-light-blue w3-center w3-text-shadow w3-margin-0 w3-padding ">Notre emplacement
+								<H2 class="col-xs-6 col-sm-12 ">Notre emplacement
 								</H2>
-								<iframe style="margin-bottom:100px;!important;"
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d664.6031490397361!2d6.587715036507536!3d48.21792923193995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ba465bce9854aa!2sChristophe+Albert!5e0!3m2!1sfr!2sfr!4v1473207778416" 
-								width="100%" height="500px" frameborder="0" zoom="0";
-								style="border:0;min-height:200px;max-height:500px;" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d664.6031490397361!2d6.587715036507536!3d48.21792923193995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ba465bce9854aa!2sChristophe+Albert!5e0!3m2!1sfr!2sfr!4v1473207778416" 
+							width="100%" height="500px" frameborder="0" zoom="0";
+							style="border:0;min-height:200px;max-height:500px;border-bottom:
+							3px solid rgba(50,50,50,0.85);margin-bottom:100px;!important;" allowfullscreen>
+				</iframe>
 								</div>
                             <!-- End Contact Form -->
                             <!-- End Main Content -->

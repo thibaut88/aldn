@@ -25,16 +25,17 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="checkbox">
-                                                <input name="inputConnect" type="checkbox">Restez connectés</label>
+                                                <input name="stayLog" type="checkbox" >Se rappeler de moi</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <button name="sendConnection" class="btn btn-primary pull-right" type="submit">Connection</button>
+                                            <button name="sendLogin" class="btn btn-primary pull-right" type="submit">Connection</button>
                                         </div>
                                     </div>
                                     <hr>
                                     <h4>Mot de passe oublié ?</h4>
                                     <p>
-                                        <a href="#">Cliquez ici </a>Restaurez votre mot de passe.</p>
+                                        <a href="<?=str_replace('index.php','',$_SERVER['SCRIPT_NAME'])?>Users/Restauration">Cliquez ici </a>
+										Restaurez votre mot de passe.</p>
                                 </form>
                             </div>
                             <!-- End Login Box -->

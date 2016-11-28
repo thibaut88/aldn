@@ -4,10 +4,11 @@
                     <div class="row">
                         <!-- Disclaimer -->
                         <div class="col-md-4">
-                            <h3 class="class margin-bottom-10">Disclaimer</h3>
-                            <p>All stock images on this template demo are for presentation purposes only, intended to represent a live site and are not included with the template or in any of the Joomla51 club membership plans.</p>
+                            <h3 class="class margin-bottom-10">Nos services</h3>
+                            <p>L'association ALDN est un site qui vous aide dans de multi-domaines comme l'informatique, les dépannages, la recherche d'emploi,
+							la formation, la médecine, le droit, la fracture du numérique et encore d'autres domaines.</p>
                             <p>Most of the images used here are available from
-                                <a href="http://www.shutterstock.com/" target="_blank">shutterstock.com</a>. Links are provided if you wish to purchase them from their copyright owners.</p>
+                          purchase them from their copyright owners.</p>
                         </div>
                         <!-- End Disclaimer -->
                         <!-- Contact Details -->
@@ -19,14 +20,15 @@
                                 <span class="fa-envelope">Email:</span>
                                 <a href="mailto:info@example.com">&nbsp;juridbirs@gmail.com</a>
                                 <br>
-                                <span class="fa-link">Website:</span>
-                                <a href="http://www.example.com">www.example.com</a>
+                                <span class="fa-link">Site web:</span>
+                                <a href="https://fr.linkedin.com/aldn">https://fr.linkedin.com/aldn</a>
                             </p>
                             <p>Ou sommes nous ?
                                 <br>En façe de la salle des fêtes
                                 <br>Fontenay 88000
                                 <br>Françe</p>
                         </div>
+						
                         <!-- End Contact Details -->
                         <!-- Sample Menu -->
                         <div class="col-md-4 margin-bottom-20">
@@ -67,7 +69,7 @@
                 <div class="container">
                     <div class="row">
                         <!-- Footer Menu -->
-                        <div id="footermenu" class="col-md-8">
+                        <div id="footermenu" class="col-md-9">
                             <ul class="list-unstyled list-inline">
 							    <li>
                                     <a href="<?=WEBROOT?>Association/Presentation" target="_blank">L'association</a>
@@ -91,7 +93,7 @@
                         </div>
                         <!-- End Footer Menu -->
                         <!-- Copyright -->
-                        <div id="copyright" class="col-md-4">
+                        <div id="copyright" class="col-md-3">
                             <p class="pull-right">(c) 2016  <a href="#" title="portfolio créateur" title="créateur du site">Copyright Thibaut Marchal</a></p>
                         </div>
                         <!-- End Copyright -->

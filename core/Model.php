@@ -7,16 +7,16 @@ public $datas;
 
 
 // LIT UNE TABLE LES CHAMPS D'UNE TABLE
-	// public function read($field='*'){
-	// if($this->id==NULL){$this->id=1;}
-	// if($fields==null){ $fields='*';}
-	// $sql = "select $fields from ".$this->table."where id=".$this->id;
-	// $req = mysql_query($sql) or die(mysql_error());
-	// $data=mysql_fetch_assoc($req);
-	// foreach($datas as $key=>$data){
-		// $this->$datas=$data;}  
-	// return $this->datas;
-	// }
+	public function read($field='*'){
+	if($this->id==NULL){$this->id=1;}
+	if($fields==null){ $fields='*';}
+	$sql = "select $fields from ".$this->table."where id=".$this->id;
+	$req = mysql_query($sql) or die(mysql_error());
+	$data=mysql_fetch_assoc($req);
+	foreach($datas as $key=>$data){
+		$this->$datas=$data;}  
+	return $this->datas;
+	}
 	
 	//CHARGE UN MODEL BDD
 	function loadModel($name){

@@ -1,24 +1,5 @@
 
-<script type="text/javascript">
-
-/***
-(function(){
-
-	var onScroll = function(){
-		
-
-	var element = document.querySelector('#menu');
-	if(element.getBoundingClientRect().top < 0){
-		element.style.position="fixed!important";
-		element.style.top="0";
-	}
-alert(elem);
-	}
-	
-})()
-
-***/
-/***
+//Navbar fixed
 (function($){
 	
 	
@@ -41,5 +22,4 @@ alert(elem);
         });
     });
 })(jQuery);
-****/
-</script>
+

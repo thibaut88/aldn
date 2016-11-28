@@ -2,6 +2,7 @@
 <?php
 $categoryOffer=$inputtype;
 $timeOffer=$inputtimes;
+
 foreach($inputtimes as $key=>$value){
 	if($value['id_category_time']==$offer['length_offer']){
 		$timeOffer=$value['category_time_name'];
@@ -80,10 +81,10 @@ foreach($inputtype as $key=>$value){
 						<td><?=$offer['phone_offer']?></td></tr>
 						
 						<tr><td>type de l'offre</td>
-						<td><?=$offer['type_offer']?></td></tr>
+						<td><?=$offer['annonce_type']?></td></tr>
 						
 						<tr><td>type de demande</td>
-						<td><?=$offer['type_offer']?></td></tr>
+						<td><?=$offer['user_type']?></td></tr>
 						
 						<tr><td>durée</td>
 						<td><?=$timeOffer?></td></tr>
@@ -111,7 +112,7 @@ foreach($inputtype as $key=>$value){
 				</div>
 				
 				<!-- si connecté -->
-				<?php if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo']) && $_SESSION['Auth']['email']== $offer['email_offer']){ ?>
+				<?php if(isset($_SESSION['Auth']['id'])&&isset($_SESSION['Auth']['pseudo']) && $_SESSION['Auth']['email'] == $offer['email_offer']){ ?>
 				
 					<div class="form-group">
 						<a href="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/deleteOffer.php?idOffer='.$offer['id_offer']?>">	

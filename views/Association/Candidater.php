@@ -1,22 +1,5 @@
 
-<script type="text/javascript">
-function chooseOffer(offer){
-
-	var $member =$('#membre');
-	var $opt =$member.find("option");
-	
-	$opt.each(function(){
-		if($(this).attr('value')==offer){
-			$(this).attr('selected','selected');
-			var $elem =$(this);
-			$elem.addClass('bg-danger');
-			console.log($elem);
-		}
-	});
-
-}
-
-</script>
+<script type="text/javascript" src="<?=WEBROOT?>js/candidater_offer.js"></script>
 
 <div class="container background-white">
 <?php

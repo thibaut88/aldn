@@ -6,6 +6,10 @@
 This site Web 'ALDN' is based on free template find in the web !
 That site has coded with MVC architecture !
 
+
+FAIRE EMAIL DE CONFIRMATION D'INSCRIPTION
+FAIRE EMAIL DE RESTAURATION DE MOT DE PASSE
+
 1 ) Arborescence:
 /admin -> partie administration du site
 config.php-> fichiers configuration et objects du site
@@ -28,6 +32,34 @@ webroot -> url depuis la racine en absolu
 4)Helps:
 mysqli_num_rows($sql); //nombre de lignes
 
+ERROR 404 AJOUTER POST VERS UN CONTROLLER ET UNE ACTION =)
+
+/////////////////////////////
+BDD:
+etat au lieu de supprimer user, mettre desactiver ou activer !!
+mettre en_ligne offres et enlever offres temporaires
+
+SQL FUNCTIONS DATES:
+select *,ADDDATE(birthday, INTERVAL 1 YEAR) FROM users WHERE 1
+select *,SUBDATE(birthday, 10) FROM users WHERE 1
+select *,DATE_SUB(birthday, INTERVAL 1 YEAR) FROM users WHERE 1
+select *,ADDTIME(birthday,'1:0:0') FROM users WHERE 1
+select *,SUBTIME(birthday,'1 1:0:0') FROM users WHERE 1
+
+SELECT * FROM users WHERE bithday < SUBDATE('2016-10-25', INTERVAL 16 YEAR;
+
+NOW() recupere le timestamp date+temps
+CURTIME() heure
+
+SELECT *, DATE('2007-03-12 12:01:00') FROM users;  return : 2007-03-12
+
+SELECT *, YEAR(birthday) FROM users; // le mois
+SELECT *, MONTH(birthday) FROM users; // le mois
+SELECT *, DAY(birthday) FROM users; // le mois
+
+Avec les conditions :
+SELECT * FROM users WHERE YEAR(birthday) > 1970;
+SELECT * FROM users GROUP BY YEAR(birthday);
 
 
 

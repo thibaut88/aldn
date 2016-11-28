@@ -41,10 +41,9 @@ class Controller{
 	}
 	//LIRE UN MODEL BDD
 	public function loadModel($name){
-		$name = ucfirst($name);
 	    require_once(ROOT.'models/'.$name.'.php');
-		// $name = ucfirst($name);
-		// $this->$name= new $name();
+		$name = ucfirst($name);
+		$this->$name= new $name();
 		}
 	//passe a la vue le fichier qui correspond
 	function render($filename){

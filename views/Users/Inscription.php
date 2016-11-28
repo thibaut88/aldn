@@ -1,109 +1,14 @@
-				<script type="text/javascript">
+<script type="text/javascript">
+	var errors=Array();
+	var counterError =0;
+	var isInt = true;
+</script><!-- Fin script control du formulaire -->
+<script type="text/javascript" src="<?=WEBROOT?>js/avatar_register.js"></script>
+<script type="text/javascript" src="<?=WEBROOT?>js/password_register.js"></script>
+<script type="text/javascript" src="<?=WEBROOT?>js/phone_register.js"></script>
+<script type="text/javascript" src="<?=WEBROOT?>js/send_register.js"></script>
+<script type="text/javascript" src="<?=WEBROOT?>js/previsualiser_avatar_register.js"></script>
 
-					$(function(){
-							var errors=Array();
-							var counterError =0;
-							var $inputs = $(':input');
-							var $pass = $(':input[name=pass]');
-							var $cpass = $(':input[name=cpass]');
-							var $phone = $(':input[name=phone]');
-							var $register = $(':input[name=register]');
-										
-							//input password
-							$cpass.on('blur', function(){
-									//si pass !== cpass
-									if($cpass.val() != $pass.val()){
-										 errors['pass']='<p class="errorPass"><small>les mot de passe ne correspondent pas</small></p>';
-										$cpass.after(errors['pass']);
-										counterError++;
-									//sinon si cpass == pass
-									}else if($cpass.val() == $pass.val()){
-										$('p.errorPass').fadeOut().hide();
-										errors['pass']=undefined;
-										counterError=0;
-									}
-							});//blur cpass
-
-							//envoi formulaire
-							$('form').submit(function(e){
-									if(counterError !== 0){
-										e.preventDefault();
-										for(var key in errors){
-										$register.after(errors[key]);
-										}
-									}
-							});//submit form
-
-						
-							//input phone		
-							$phone.on('blur', function(){
-								
-									var $type = typeof($(this).val());
-									var $valeur= $(this).val();
-									var isint = true;
-									var counterror = 0;
-									
-									//boucle sur la chaine phone
-									for(var i =0;i<$valeur.length;i++){
-										if(
-										($valeur[i] == '0') ||
-										($valeur[i] == '1') ||
-										($valeur[i] == '2') ||
-										($valeur[i] == '3') ||
-										($valeur[i] == '4') ||
-										($valeur[i] == '5') ||
-										($valeur[i] == '6') ||
-										($valeur[i] == '7') ||
-										($valeur[i] == '8') ||
-										($valeur[i] == '9') 
-										){
-											
-										}else{
-											counterror++;
-											var isInt=false;													
-										}
-									}
-									//Si compteur > 0 ou isint = false
-									if((counterror > 0) ||( isInt == false)){
-										 errors["num"] = '<p class="ErrorNum"><small>Entrez un numéro valide</small></p>';
-										$phone.after(errors['num']);
-										counterError++;
-									}else{
-										$('p.ErrorNum').fadeOut().hide();
-										 errors["num"]=undefined;
-										counterError=0;			
-										}
-							});<!-- blur phone
-
-							
-							// Script pour le bouton avatar			
-							var $avatar = $( "input:file" );
-							$avatar.before( "choisir une image" );
-							
-							$avatar.change(function (){
-								var fileName = $(this).val();
-								$avatar.parent().after(fileName);
-								 //Liste des extensions valides
-								var $extensions_valides = Array( 'jpg' , 'jpeg' , 'gif' , 'png', 'bmp' );
-								var $indexExt = fileName.indexOf(".");
-								var ext = "";
-								for(var i=$indexExt+1; i<fileName.length; i++){
-									ext += fileName[i];
-								}
-								 var ext2 = $extensions_valides.indexOf(ext);
-								if (ext2 === -1) {
-								  // si l'élément n'existe pas dans le tableau
-								  var extError = "extension non valide !!";
-								  $avatar.parent().parent().after(extError);
-								  counterError++;
-								}else{
-								counterError=0;
-								}					
-							});<!-- change file -->
-			
-					});// END JQuery
-
-				</script><!-- Fin script control du formulaire -->
 
 
 
@@ -199,11 +104,15 @@
 												<input name="avatar" type="file" class="form-control margin-bottom-20"  style="display: none;">
 												</label>
 										</div>
-									
+							
 									<center>
 									<!-- Bouton envoyer formulaire -->
 									<input class="btn btn-default" type="submit" name="register" value="valider">
 									</center>
+										<div class=" col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+													<div id="contentAvatar" style="padding:0px!mportant;">
+													</div>
+										</div>
 									</div>
 								</div><!-- fin row -->
 							

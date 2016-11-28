@@ -1,13 +1,13 @@
 <?php
-    //Vérification de l'avatar :
     if (!empty($_FILES['avatar']['size']))
     {
         //On définit les variables :
         $maxsize = 10024; //Poid de l'image
         $maxwidth = 100; //Largeur de l'image
         $maxheight = 100; //Longueur de l'image
-        $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png', 'bmp' ); //Liste des extensions valides
-        
+        $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png', 'bmp' ); 
+    
+		//Si Erreur Ttansfert
         if ($_FILES['avatar']['error'] > 0)
         {
                 $avatar_erreur = "Erreur lors du transfert de l'avatar : ";
@@ -15,36 +15,36 @@
         if ($_FILES['avatar']['size'] > $maxsize)
         {
                 $i++;
-                $avatar_erreur1 = "Le fichier est trop gros : (<strong>".$_FILES['avatar']['size']." Octets</strong>    contre <strong>".$maxsize." Octets</strong>)";
+                $avatar_erreur1 = "Le fichier est trop gros :";
         }
-
+		//Récup tailles image
         $image_sizes = getimagesize($_FILES['avatar']['tmp_name']);
+		//Si Erreur Taille
         if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight)
         {
                 $i++;
                 $avatar_erreur2 = "Image trop large ou trop longue : 
                 (<strong>".$image_sizes[0]."x".$image_sizes[1]."</strong> contre <strong>".$maxwidth."x".$maxheight."</strong>)";
         }
-        
+		//Récup Extension fichier
         $extension_upload = strtolower(substr(  strrchr($_FILES['avatar']['name'], '.')  ,1));
         if (!in_array($extension_upload,$extensions_valides) )
         {
                 $i++;
                 $avatar_erreur3 = "Extension de l'avatar incorrecte";
         }
-    }
-?>
-<?php
-$nomavatar=(!empty($_FILES['avatar']['size']))?move_avatar($_FILES['avatar']):'';
-?>
-<?php
-function move_avatar($avatar)
-{
-    $extension_upload = strtolower(substr(  strrchr($avatar['name'], '.')  ,1));
-    $name = time();
-    $nomavatar = str_replace(' ','',$name).".".$extension_upload;
-    $name = "./images/avatars/".str_replace(' ','',$name).".".$extension_upload;
-    move_uploaded_file($avatar['tmp_name'],$name);
-    return $nomavatar;
-}
-?>
+    }//Endif avatar size
+
+		$nomImage='img_'.time();
+		$nomavatar=(!empty($_FILES['avatar']['size']))?move_avatar($_FILES['avatar'],$nomImage):'';
+
+		//Déplacer le fichier sur le serveur !
+		function move_avatar($avatar,$name)
+		{
+			$extension_upload = strtolower(substr(  strrchr($avatar['name'], '.')  ,1));
+			$nameImage = str_replace(' ','',$name).".".$extension_upload;
+			$name = "images/avatars/".str_replace(' ','',$name).".".$extension_upload;
+			move_uploaded_file($avatar['tmp_name'],$name);
+			return $nameImage;
+		}
+

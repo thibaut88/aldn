@@ -1,5 +1,4 @@
 
-
 <!-- ALERTE OFFRE AJOUTEE -->
 <?php
 if($this->alerteDeposer=="ok"){ ?>
@@ -31,22 +30,15 @@ if($this->alerteDeposer=="no"){ ?>
 							margin-bottom:100px;
 							height:0 auto;">
 						<center>
-						<span  style="position:relative;">
+						<span  style="position:relative;
+						dsiplay:flex;">
 						<h1>Vous êtes ?</h1>
 						<button  class="btn"onclick="showDeposerForm()"
-										style="width:200px;
-										position:absolute;
-										top:0px;
-										left:0px;
-										right:0px;">
-						Un Demandeur d'emploi</button>
+										style="width:200px;height:200px;border-radius:50%!important;">
+						Un demandeur <br>d'emploi</button>
 						
 						<button class="btn" onclick="showEmployeur()"
-										style="width:200px;
-										position:absolute;
-										top:30px;
-										left:0px;
-										right:0px;">
+										style="width:200px;height:200px;border-radius:50%!important;">
 						Un employeur</button>
 						</span>
 						</center>
@@ -61,7 +53,8 @@ if($this->alerteDeposer=="no"){ ?>
 
 		<h1 style=" background:black;color:white;margin:0px;font-size:30px;padding:6px;">Votre annonce</h1>
 
-		<form action="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/query_deposer_form_offer.php';?>" method="post">
+		<form action="<?= str_replace('index.php','',$_SERVER['SCRIPT_NAME']).'scripts/query_deposer_form_offer.php';?>" 
+		method="post" enctype='multipart/form-data'>
 
 	<!-- VOTRE ANNONCE IINFOS GENERALES -->
 		<div class="col-xs-8 ">
@@ -101,7 +94,9 @@ if($this->alerteDeposer=="no"){ ?>
 				<label class="w3-validate">Demandes</label>
 				</div>
 			</div>
-		
+			<div class="checkbox">
+			<label><input type="checkbox" name="diplome">Avec ou sans diplôme ?</label>
+			</div>
 			<div class="form-group">
 			<label class="">Titre de l'annonce </label>
 				<input class="form-control" type="text"name="titre_annonce" required>
@@ -135,13 +130,12 @@ if($this->alerteDeposer=="no"){ ?>
 	<!-- AJOUTER UNE IMAGE -->
 	<div class="row background-white">
 		<h1 style=" background:black;color:white;margin:0px;font-size:30px;padding:6px;">Ajouter une image</h1>
-		<div class="col-xs-4">
-			<div class="form-group">
-			<input class="btn btn-default form-control"type="file"name="image1"value="parcourir">
-			</div>
+		<div class="col-xs-12">
+			<center><input class="btn btn-default form-control"type="file"name="image1" id="image1" value="parcourir"></center>
+
 		</div>
-		<div class="w3-col-xs-4"></div>
-		<div class="w3-col-xs-4"></div>
+		<div class="col-xs-4 loadImage"></div>
+		<div class="col-xs-4 loadImage"></div>
 
 	</div>
 
@@ -217,21 +211,31 @@ if($this->alerteDeposer=="no"){ ?>
 </div><!-- END CONTAINER -->
 
 
+<script type="text/javascript" src="<?=WEBROOT?>js/previsualiser_annonce.js"></script>
 
-		<!-- JQUERY -->
-
-		<script type='text/javascript'>
+<script type='text/javascript'>
 		
 		
+			$("button").click(function(){
+				$('button').css('backgroundColor','white').css('font-size','15px');
+				$(this).css({
+						'backgroundColor':'green',
+						'font-size':'30px'
+						});
+				
+				
+			});
+			
+			
 			$('#DepotAnnonceForm').hide();
 			
 			var Errors = false;
 			
 			function showEmployeur(){
-			$('#DepotAnnonceForm').fadeOut();
+			$('#DepotAnnonceForm').hide(250);
 			}
 			function showDeposerForm(){
-			$('#DepotAnnonceForm').fadeIn();
+			$('#DepotAnnonceForm').show(250);
 				
 			}
 			//input ville 
@@ -241,7 +245,7 @@ if($this->alerteDeposer=="no"){ ?>
 					$("#contentVille").html("").hide();
 			};	
 			
-		$(document).ready(function(){
+		$(function(){
 			
 			//envoi formulaire
 			$('form').submit(function(e){
@@ -316,3 +320,7 @@ if($this->alerteDeposer=="no"){ ?>
 		});
 			
 		</script>
+
+
+
+	
