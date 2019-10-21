@@ -16,18 +16,18 @@ class Offres extends Controller{
 
 /** PAGE INDEX OFFRES **/
 	function Index(){
-		require 'Controller/Offres/Index.php';
+		require 'controller/Offres/Index.php';
 	}
 /** PAGE Postuler **/
 	function Postuler(){
-		require 'Controller/Offres/Postuler.php';
+		require 'controller/Offres/Postuler.php';
 	}
 /** DEPOSER UNE ANNONCE ***/
 	function Deposer(){
-		require 'Controller/Offres/Deposer.php';
+		require 'controller/Offres/Deposer.php';
 	}
 /** VOIR LES DETAILS DE L'OFFRE **/
 	function Details(){
-		require 'Controller/Offres/Details.php';
+		require 'controller/Offres/Details.php';
 	}
 }//End Offres

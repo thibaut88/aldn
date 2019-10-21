@@ -1,23 +1,23 @@
 <?php
 class Acte extends Controller{
 	
-	function CompromisVente(){
+	function compromisVente(){
 		require 'Controller/Acte/CompromisVente.php';
 	}
 	
-	function LocationEtCollocation(){
+	function locationEtCollocation(){
 		require 'Controller/Acte/LocationEtCollocation.php';
 	}
 	
-	function CessionDeDroits(){
+	function cessionDeDroits(){
 		require 'Controller/Acte/CessionDeDroits.php';
 	}	
 	
-	function SortieIndivision(){
+	function sortieIndivision(){
 		require 'Controller/Acte/SortieIndivision.php';
 	}		
 	
-	function AutreDemande(){
+	function autreDemande(){
 		require 'Controller/Acte/AutreDemande.php';
 	}			
 }//End Controller Acte

@@ -13,7 +13,7 @@ class LastOffers extends Model{
 		}
 		$lastOffers = "SELECT $fields FROM offers ORDER BY id_offer DESC LIMIT 6";
 		$this->sql = $lastOffers;
-		$result = mysqli_query($conn,$lastOffers) or die(mysqli_error($conn));
+		$result = mysqli_query($conn->conn,$lastOffers) or die(mysqli_error($conn->conn));
 		if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)){
 			$this->datas[] = $row;

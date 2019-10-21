@@ -10,9 +10,9 @@ class FilterOffers extends Model{
 	
 	function read($fields='*')
 	{
-		$conn = $GLOBALS['conn'];
+		global $conn;
 		if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+			die("Connection failed: " . mysqli_connect_error());
 		}
 		
 		$filter = array();

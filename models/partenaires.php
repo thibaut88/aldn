@@ -9,34 +9,28 @@ class PartenairesModel extends Model{
 	public $sql;
 	
 	//LIRE INFOS TABLE
-	public function readTable($field=null){
-	$conn = $GLOBALS['conn'];
-		if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+	public function readTable($field=null)
+	{
+		global $conn;
+		if(!$conn)
+			$conn = new Database();
+  		//SQL
+		if($field==null or !isset($field)){ $field='*';}
+ 		$sql = "SELECT $field FROM partenaires"; 
+		if($this->id!=NULL){
+			$sql.=" WHERE id_partenaire = ".$this->id."";
+		} 
+		$this->sql = $sql;
+ 		$req = mysqli_query($conn->conn, $sql) or die(mysqli_error($conn->conn));
+		if (mysqli_num_rows($req) > 0) {
+			while($data = mysqli_fetch_assoc($req)){
+				$this->datas[] = $data;
+			}
+		} else {
+			echo "<p>0 resultats</p>";
 		}
-		
-	//SQL
-	if($field==null){ $field='*';}
-	if(isset($field)){ $field='*';}
-	$sql = "SELECT $field FROM partenaires";
-	if($this->id==NULL){}
-	else{
-	$sql.=" WHERE id_partenaire = ".$this->id."";
-	}
-	$this->sql = $sql;
-	$req = mysqli_query($conn,$sql) or die(mysqli_error());
-	if (mysqli_num_rows($req) > 0) {
-	while($data = mysqli_fetch_assoc($req)){
-		$this->datas[] = $data;
-	}
-	} else {
-		echo "<p>0 resultats</p>";
-	}
-		mysqli_close($conn);
+		mysqli_close($conn->conn);
 		return $this->datas;
-		}
-}
-
-$QueryPartenaires = new PartenairesModel();
-
+	}
+} 
 ?>

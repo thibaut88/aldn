@@ -1,14 +1,14 @@
 <?php
 class Association extends Controller{
 
-	public $Slider_offers;
+	public $slider_offers;
 	
-	function Index(){
-		// INCLUS LE MODEL SLIDER_OFFERS
-		require 'models/slider_offers.php';
-		$this->Slider_offers=$SliderOffers->read();
+	function index(){
+ 		$this->loadModel('slider_offers');
+  		$sliderOffers= new SliderOffers();   
+  		$this->slider_offers=$sliderOffers->read();
 		//Récupère le Controlleur en cours:
-		$Controller = $GLOBALS['Controller'];
+		$Controller = $GLOBALS['controller'];
 		//get url 
 		$get = $GLOBALS['parametre'];
 		$displayAlerte=false;
@@ -21,7 +21,7 @@ class Association extends Controller{
 		require 'views/elements/footer.php';
 
 	}
-	function Contacts(){
+	function contacts(){
 		//AJOUTER SCRIPT FORMULAIRE DE CONTACT
 		$get = $GLOBALS['parametre'];
 		$displayAlertMessageSend=false;
@@ -29,24 +29,24 @@ class Association extends Controller{
 		$displayAlertMessageSend=($get=='sendIsOk')?true:false;
 		$displayAlertMessageSend=($get=='sendIsOk')?true:false;
 		//VARS
-		define('phoneAvocat',"06.59.15.49.89");
-		define('emailAvocat',"juridbirs@gmail.com");
+		define('phoneAvocat',"06.00.00.00.00");
+		define('emailAvocat',"avocatEmail@domain.ext");
 		require 'views/elements/header.php';
 		require 'views/Association/Contacts.php';
 		require 'views/elements/footer.php';		
 
 	}
-	function Presentation(){
+	function presentation(){
 		require 'views/elements/header.php';
 		require 'views/Association/Presentation.php';
 		require 'views/elements/footer.php';
 	}
-	function AideExterne(){
+	function aideExterne(){
 		require 'views/elements/header.php';
 		require 'views/Association/AideExterne.php';
 		require 'views/elements/footer.php';
 	}
-	function Candidater(){
+	function candidater(){
 		$get = $GLOBALS['parametre'];
 		$displayAlerte=false;
 		if($get=="isOk"){
@@ -56,12 +56,12 @@ class Association extends Controller{
 		require 'views/Association/Candidater.php';
 		require 'views/elements/footer.php';
 	}
-	function MentionsLegales(){
+	function mentionsLegales(){
 		require 'views/elements/header.php';
 		require 'views/Association/MentionsLegales.php';
 		require 'views/elements/footer.php';
 	}
-	function Charte(){
+	function charte(){
 		require 'views/elements/header.php';
 		require 'views/Association/Charte.php';
 		require 'views/elements/footer.php';

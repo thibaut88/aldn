@@ -1,25 +1,25 @@
 <?php
 class Controller{
-	//@ vars = ARRAY()
-	//@ layout = VAR()
-	//@datas = requete POST
+	//@vars = ARRAY()
 	var $vars = array();
+	//@layout = VAR()
 	var $layout='default';
+	//@datas = requete POST
 	public $datas;
+	//@model = modele de base de donnée
 	public $model;
 	
 	//LE CONSTRUCTEUR
 	function __construct(){
-	//La requete POST
 		if(isset($_POST)){
 		$this->datas = $_POST;
 	}}
 	//LIRE UN PLUGIN
-	public function loadPlugin($filaname){
+	public function loadPlugin($filename){
 		$filename = strtolower($filename);
 		require_once(ROOT.'plugins/'.$filename.'.php');				
 	}
-	//LIRE UN MODUL
+	//LIRE UN MODULE
 	public function loadModul($filename){
 		$filename = strtolower($filename);
 		require_once(ROOT.'views/moduls/'.$filename.'.php');		
@@ -40,17 +40,21 @@ class Controller{
 		require_once(ROOT.'js/'.$filename.'.js');
 	}
 	//LIRE UN MODEL BDD
-	public function loadModel($name){
-	    require_once(ROOT.'models/'.$name.'.php');
-		$name = ucfirst($name);
-		$this->$name= new $name();
-		}
-	//passe a la vue le fichier qui correspond
-	function render($filename){
+	public function loadModel($filename){
+
+		$filename = strtolower($filename);
+	    require_once(ROOT.'models/'.$filename.'.php');
+		$class = str_replace(' ','',ucwords(str_replace('_',' ', $filename))); 
+		$this->$filename= new $class();
+	}
+	//PASSER A LA VUE LE FICHIER CORRESPONDANT
+	public function render($filename){
 		extract($this->vars);
+		
 		ob_start();
 		require(ROOT.'views/'.get_class($this).'/'.$filename.'.php');
 		$content_for_layout = ob_get_clean();
+
 		if($this->layout==false){
 			echo $content_for_layout;
 		}
@@ -58,14 +62,8 @@ class Controller{
 			require(ROOT.'views/layout/'.$this->layout.'.php');
 		}
 	}
-
 	//PASSER LES VARIABLES A LA VUE
-	function set($d){
+	public function set($d){
 		$this->vars=array_merge($this->vars,$d);
 	}
-
-
-	}
-
-
-?>
+}

@@ -3,28 +3,25 @@
 <script type="text/javascript">
 //Affichage dynamique titre menu left
 $(function(){
-				var $tabs = $('#menugauche');
-				$tabs = $tabs.find('a');
-	
-				$tabs.click(function(){
-					$elem = $(this);
-					$val = $elem.attr('data-titre');
-					$('#title').hide().html($val).fadeIn();
-				});
-	
-});	
+	var $tabs = $('#menugauche');
+	$tabs = $tabs.find('a');
+
+	$tabs.click(function(){
+		$elem = $(this);
+		$val = $elem.attr('data-titre');
+		$('#title').hide().html($val).fadeIn();
+	}); 
+});	 
 </script><!-- End script-->
 
 
-					  <?php
-					  //gere l'affichage ,
-					  //temporaire !!
-	
-					  $historique = null;
-					  $panier = null;
-					  $messages = null;
-		
-					  ?>
+<?php
+	//gere l'affichage , temporaire !!
+
+	$historique = null;
+	$panier = null;
+	$messages = null; 
+?>
 
 
 			<!-- Debut Container -->

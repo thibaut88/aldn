@@ -4,11 +4,12 @@ class Partenaires extends Controller{
 	//@array DATAS SQL
 	public $datas;
 	
- function Index(){
+ function index(){
+ 		global $controller; 
+		$this->loadModel('partenaires');
+		$modelPartenaires = new PartenairesModel(); 
+		$this->datas = $modelPartenaires->readTable();
 		
-		$Controller = $GLOBALS['Controller'];
-		require 'models/partenaires.php';
-		$this->datas = $QueryPartenaires->readTable();
 		//includes partials page :
 		// $Controller->loadElement('header');
 		// $Controller->loadModul('logs');

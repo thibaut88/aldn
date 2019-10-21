@@ -19,7 +19,7 @@
 		$inputtimes=$this->modelCategoryTime;
 		
 		// GESTION DES ALERTES 
-		$Controller = $GLOBALS['Controller'];
+		$Controller = $GLOBALS['controller'];
 		$get = $GLOBALS['parametre'];
 		$this->alerteDeposer=null;
 		if($get == "AddOfferIsOk"){

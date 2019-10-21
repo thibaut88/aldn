@@ -4,13 +4,13 @@ class SliderOffers extends Model{
 	public $sql;
 	function read($fields='*'){
 		//LIRE INFOS TABLE
-		$conn = $GLOBALS['conn'];
+		global $conn; 
 		if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-		}
+			$conn = new Database();
+ 		}
 		$sql = "SELECT $fields FROM slider_offers";
 		$this->sql = $sql;
-		$resultat = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+		$resultat = mysqli_query($conn->conn,$sql) or die(mysqli_error($conn));
 		if (mysqli_num_rows($resultat) > 0) {
 		while($row = mysqli_fetch_assoc($resultat)){
 			$this->datas[] = $row;
@@ -21,6 +21,5 @@ class SliderOffers extends Model{
 		return $this->datas;
 		}
 };
-$SliderOffers= new SliderOffers();
 
 ?>

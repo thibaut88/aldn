@@ -18,7 +18,7 @@ class OffersModel extends Model{
 						
 		//recupère le total d'offres
 		$offers = "SELECT  COUNT(*) AS nb_offre FROM offers WHERE en_ligne = 1";
-		$retour = mysqli_query($conn, $offers) or die(mysqli_error($conn));
+		$retour = mysqli_query($conn->conn, $offers) or die(mysqli_error($conn->conn));
 		$donnees = mysqli_fetch_assoc($retour);
 		$total_offres = $donnees['nb_offre'];
 		// offset
@@ -63,7 +63,7 @@ class OffersModel extends Model{
 
 		
 		//SEND QUERY
-		$req = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+		$req = mysqli_query($conn->conn,$sql) or die(mysqli_error($conn->conn));
 		//RECUP DES OFFRES
 		if (mysqli_num_rows($req) > 0) {
 		while($data = mysqli_fetch_assoc($req)){

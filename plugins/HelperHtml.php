@@ -7,8 +7,8 @@ class Helper
 	public function link($txt,$options){	
 		return "<a href='".$options['href']."'title='".$options['title']."'alt='".$options['alt']."'>".$txt."</a>";
 	}
-	public function image(array $vals,$width=auto,$height=auto){
-		return "<img src='".$vals['src']."' width='".$width."' height='".$height."' alt='".$vals['alt']."' border='".$vals['border']."'>";
+	public function image(array $attrs ,$width=auto,$height=auto){
+		return "<img src='".$attrs['src']."' width='".$width."' height='".$height."' alt='".$attrs['alt']."' border='".$attrs['border']."'>";
 	}
 
 	public function heading($txt,$type){
@@ -23,8 +23,7 @@ class Helper
 		$txt .= '<li>'.$list[$i].'</li>';}
 		$txt .= '</ul>';
 		return $txt;
-		}
-
+	} 
 }
 
 $helper = new Helper();

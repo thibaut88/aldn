@@ -13,7 +13,7 @@ class CategoryOffers extends Model{
 		}
 		$select_offer_type = "SELECT $fields FROM category_offers";
 		$this->sql = $select_offer_type;
-		$result = mysqli_query($conn,$select_offer_type) or die(mysqli_error($conn));
+		$result = mysqli_query($conn->conn,$select_offer_type) or die(mysqli_error($conn->conn));
 		if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)){
 			$this->datas[] = $row;

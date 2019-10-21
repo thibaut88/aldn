@@ -6,21 +6,20 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   $nom     = htmlentities($_POST['firstname']);
   $email   = htmlentities($_POST['email']);
   $message = htmlentities($_POST['message']);
- //Les erreurs
-$nombreErreur = 0;
-  if(!isset($_POST['email']) || empty($_POST['email'])){
-$nombreErreur++; 	  
-$erreur1 = '<p>Il y a un problème avec la variable "email".</p>';
-	  // Sinon, cela signifie que la variable existe (c'est normal)
-    if (empty($_POST['email'])) { // Si la variable est vide
+   //Les erreurs
+  $nombreErreur = 0;
+    if(!isset($_POST['email']) || empty($_POST['email'])){
+  $nombreErreur++; 	  
+  $erreur1 = '<p>Il y a un problème avec la variable "email".</p>';
+  // Sinon, cela signifie que la variable existe (c'est normal)
+  if (empty($_POST['email'])) { // Si la variable est vide
+    $nombreErreur++; // On incrémente la variable qui compte les erreurs
+    $erreur2 = '<p>Vous avez oublié de donner votre email.</p>';
+  } else {
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       $nombreErreur++; // On incrémente la variable qui compte les erreurs
-      $erreur2 = '<p>Vous avez oublié de donner votre email.</p>';
-    } else {
-      if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $nombreErreur++; // On incrémente la variable qui compte les erreurs
-        $erreur3 = '<p>Cet email ne ressemble pas un email.</p>';
-      }
-
+      $erreur3 = '<p>Cet email ne ressemble pas un email.</p>';
+    } 
   }
  }
 if (!isset($_POST['message']) || empty($_POST['message'])) {
@@ -44,7 +43,7 @@ if ($nombreErreur==0) {
   $contenu .= '</body></html>'; // Contenu du message de l'email (en XHTML)
  
   // Pour envoyer un email HTML, l'en-tête Content-type doit être défini
-  $headers = 'MIME-Version: 1.0'."\r\n";
+  $headers  = 'MIME-Version: 1.0'."\r\n";
   $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
  
   // Envoyer l'email

@@ -3,8 +3,7 @@ class Articles extends Controller{
 	
 	public $articles;
 	
-	public function Index(){
-		
+	public function index(){ 
 		$displayAlertePanier=(isset($_SESSION['Auth']['id']))?false:true;
 		$get = $GLOBALS['parametre'];
 		$displayShouldConnect=($get==="ShouldConnect")?true:false;
@@ -12,7 +11,7 @@ class Articles extends Controller{
 		// ON RECUPERE LES ARTICLES
 		require 'models/articles.php';
 		$this->articles = $ArticlesModel->readTable();
-		$Controller = $GLOBALS['Controller'];
+		$Controller = $GLOBALS['controller'];
 		$diplay_no_result=(!empty($this->articles))?false:true;
 		//Include partials page :
 		require 'views/elements/header.php';

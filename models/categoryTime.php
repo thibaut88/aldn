@@ -13,7 +13,7 @@ class CategoryTime extends Model{
 		}
 		$selectOfferTime = "SELECT $fields FROM category_time";
 		$this->sql = $selectOfferTime;
-		$resultat = mysqli_query($conn,$selectOfferTime);
+		$resultat = mysqli_query($conn->conn,$selectOfferTime);
 		if (mysqli_num_rows($resultat) > 0) {
 		while($row = mysqli_fetch_assoc($resultat)){
 			$this->datas[] = $row;
